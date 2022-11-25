@@ -6,7 +6,7 @@ A01322277
 """
 
 def make_character(name):
-    character = {"name": name, "level": 1, "current_exp": 0, "exp_needed": 100}
+    character = {"name": name, "level": 1, "current_exp": 0, "exp_needed": 100, "attack": 1, "defense": 1, "speed": 2}
     return character
 
 
