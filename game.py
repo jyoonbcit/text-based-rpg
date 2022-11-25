@@ -27,3 +27,10 @@ def game(): # called from main
         else:
             # // Tell the user they can’t go in that direction
             # // Print end of game stuff like congratulations or sorry you died
+
+
+def main():
+
+
+if __name__ == '__main__':
+    main()
