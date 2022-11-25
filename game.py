@@ -1,7 +1,13 @@
 """
 Elijah Fabon
 A01324170
+Jihoon Yoon
+A01322277
 """
+
+def make_character(name):
+    character = {"name": name, "level": 1, "current_exp": 0, "exp_needed": 100}
+    return character
 
 
 def game(): # called from main
