@@ -6,28 +6,36 @@ A01322277
 """
 
 def make_character(name):
+    # on character creation
     character = {"name": name, "level": 1, "current_exp": 0, "exp_needed": 100, "attack": 1, "defense": 1, "speed": 2}
+    # could add customization, ex. letting users decide stats at the beginning with inputs
     return character
 
 
 def exp_to_level_up(character):
+    # detect character level, detects exp needed to level up
+    # returns an integer representing exp needed to level up
     if character["level"] == 1:
-        character["exp_needed"] = 100
-        return 100
+        exp_needed = 100 - character["current_exp"]
+        return exp_needed
     if character["level"] == 2:
-        character["exp_needed"] = 200
-        return 200
+        exp_needed = 200 - character["current_exp"]
+        return exp_needed
 
 
 def level_up(character):
+    # plays whenever character levels up
+    # instead of printing "has levelled up", can do ASCII art
     print(character["name"], "has leveled up!")
+    # these are the stats that go up
     character["level"] += 1
+    # these stats reset back to 0 or default for level
     character["current_exp"] = 0
     character["exp_needed"] = exp_to_level_up(character)
     return character
 
 
-def game(): # called from main
+def start_game(): # called from main
     rows = 5
     columns = 5
     board = make_board(rows, columns)
