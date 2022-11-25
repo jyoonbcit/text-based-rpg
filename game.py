@@ -19,6 +19,14 @@ def exp_to_level_up(character):
         return 200
 
 
+def level_up(character):
+    print(character["name"], "has leveled up!")
+    character["level"] += 1
+    character["current_exp"] = 0
+    character["exp_needed"] = exp_to_level_up(character)
+    return character
+
+
 def game(): # called from main
     rows = 5
     columns = 5
