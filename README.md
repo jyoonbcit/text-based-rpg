@@ -17,13 +17,13 @@ Elijah-Fabon
 Replace this line with any comments you want to share
 
 ## Your name:
-
+Jihoon Yoon
 
 ## Your student number:
-
+A01322277
 
 ## Your GitHub account ID:
-
+jyoonbcit
 
 ## Any important comments you'd like to make about your work:
 Replace this line with any comments you want to share
