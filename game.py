@@ -61,6 +61,10 @@ def start_game(): # called from main
 
 
 def main():
+    """
+    Runs the program.
+    """
+    start_game()
 
 
 if __name__ == '__main__':
