@@ -10,6 +10,15 @@ def make_character(name):
     return character
 
 
+def exp_to_level_up(character):
+    if character["level"] == 1:
+        character["exp_needed"] = 100
+        return 100
+    if character["level"] == 2:
+        character["exp_needed"] = 200
+        return 200
+
+
 def game(): # called from main
     rows = 5
     columns = 5
