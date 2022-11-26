@@ -5,6 +5,10 @@ Jihoon Yoon
 A01322277
 """
 
+
+def make_board(rows, columns):
+
+
 def make_character(name):
     # on character creation
     character = {"name": name, "level": 1, "current_exp": 0, "exp_needed": 100, "attack": 1, "defense": 1, "speed": 2}
@@ -33,6 +37,11 @@ def level_up(character):
     character["current_exp"] = 0
     character["exp_needed"] = exp_to_level_up(character)
     return character
+
+def describe_current_location(board, character):
+
+
+def get_user_choice():
 
 
 def start_game(): # called from main
