@@ -130,7 +130,7 @@ def start_game(): # called from main
         valid_move = validate_move(board, character, direction)
         if valid_move:
             move_character(character)
-            describe_current_location(board, character)
+            describe_current_location(character)
             there_is_a_challenge = check_for_challenges()
             if there_is_a_challenge:
                 execute_challenge_protocol(character)
