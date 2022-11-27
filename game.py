@@ -4,15 +4,46 @@ A01324170
 Jihoon Yoon
 A01322277
 """
+import random
 
 
+# do we need a make_board if we're using a static map?
 def make_board(rows, columns):
+    """
+    Create all possible X and Y positions on a grid.
+
+    :param rows:
+    :param columns:
+    :postcondition:
+    :return:
+
+    >>> make_board(3, 3)
+    [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]
+    """
+    board = []
+    for position_x in range(rows):
+        for position_y in range(columns):
+            board.append((position_x, position_y))
+    return board
+
+
+
+def display_board():
 
 
 def make_character(name):
     # on character creation
-    character = {"name": name, "level": 1, "current_exp": 0, "exp_needed": 100, "attack": 1, "defense": 1, "speed": 2}
+    character = {"name": name,
+                 "level": 1,
+                 "current_exp": 0,
+                 "exp_needed": 100,
+                 "attack": 1,
+                 "defense": 1,
+                 "speed": 2,
+                 "spells": []}
     # could add customization, ex. letting users decide stats at the beginning with inputs
+    pick_spells(character)
+    move()
     return character
 
 
@@ -38,16 +69,22 @@ def level_up(character):
     character["exp_needed"] = exp_to_level_up(character)
     return character
 
-def describe_current_location(board, character):
 
+def move(north, east, west, south):
+
+
+def describe_current_location(board, character):
+        print(f"To your north is {}, to your east is {}, to your south is {}, to your west is {}.")
 
 def get_user_choice():
 
 
 def start_game(): # called from main
-    rows = 5
-    columns = 5
+    rows = 10
+    columns = 10
+    # done
     board = make_board(rows, columns)
+    # done but could be adjusted
     character = make_character("Player name")
     achieved_goal = False
     while not achieved_goal:
