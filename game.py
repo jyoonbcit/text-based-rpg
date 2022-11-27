@@ -121,7 +121,7 @@ def start_game(): # called from main
     # done
     board = make_board(rows, columns)
     # done but could be adjusted
-    character = make_character("Player name")
+    character = make_character(input("Enter your name: "))
     achieved_goal = False
     while not achieved_goal:
         # // Tell the user where they are
