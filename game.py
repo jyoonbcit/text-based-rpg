@@ -4,7 +4,19 @@ A01324170
 Jihoon Yoon
 A01322277
 """
+# TO-DO-LIST
+# Add descriptions to the board positions
+# Implement pick_spells for level 2, 3, etc
+# Get display board to display
+# Assign START (global constant) to the beginning point of our map
+# Add ASCII art
+# For myself (Jihoon): Check if return statements are necessary for variable adjustments, eg. move fn
+
+
 import random
+
+
+START = (0, 0)
 
 
 # do we need a make_board if we're using a static map?
@@ -28,18 +40,20 @@ def make_board(rows, columns):
 
 
 
-def display_board():
+def display_board(character):
+    # dynamically displays a board depending on character["position"]
 
 
 def pick_spells(character):
     # name: [target, damage, cost]
     if character["level"] == 1:
         spells_dict = {"Burn": ["enemy", 10, 10],
+                       # reckless is RNG damage, should clarify with print statement or description
                        "Reckless": ["enemy", random.randint(0, 20), 12],
                        "Heal": ["player", 15, 10]}
         for option_num, spell in enumerate(spells_dict):
             print(f"{option_num}: {spell}")
-        selection = input("Select a spell: ")
+        selection = int(input("Select a spell: "))
         if selection == 0:
             chosen_spell = "Burn"
         elif selection == 1:
@@ -47,7 +61,7 @@ def pick_spells(character):
         else:
             chosen_spell = "Heal"
         print(f"You have selected {chosen_spell}")
-        character["spells"] = character["spells"].append(spells_dict[chosen_spell])
+        character["spells"][chosen_spell] = spells_dict[chosen_spell]
     return character
 
 
@@ -57,13 +71,12 @@ def make_character(name):
                  "level": 1,
                  "current_exp": 0,
                  "exp_needed": 100,
+                 "position": START,
                  "attack": 1,
                  "defense": 1,
                  "speed": 2,
-                 "spells": []}
-    # could add customization, ex. letting users decide stats at the beginning with inputs
+                 "spells": dict()}
     pick_spells(character)
-    move()
     return character
 
 
@@ -90,11 +103,14 @@ def level_up(character):
     return character
 
 
-def move(north, east, west, south):
+def move(character, x_movement, y_movement):
+    (x_position, y_position) = character["position"]
+    character["position"] = (x_position + x_movement, y_position + y_movement)
+    return character
 
 
-def describe_current_location(board, character):
-        print(f"To your north is {}, to your east is {}, to your south is {}, to your west is {}.")
+def describe_current_location(character):
+    print(f"You are at {str(character['position'])}")
 
 def get_user_choice():
 
