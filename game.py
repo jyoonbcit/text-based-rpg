@@ -31,6 +31,26 @@ def make_board(rows, columns):
 def display_board():
 
 
+def pick_spells(character):
+    # name: [target, damage, cost]
+    if character["level"] == 1:
+        spells_dict = {"Burn": ["enemy", 10, 10],
+                       "Reckless": ["enemy", random.randint(0, 20), 12],
+                       "Heal": ["player", 15, 10]}
+        for option_num, spell in enumerate(spells_dict):
+            print(f"{option_num}: {spell}")
+        selection = input("Select a spell: ")
+        if selection == 0:
+            chosen_spell = "Burn"
+        elif selection == 1:
+            chosen_spell = "Reckless"
+        else:
+            chosen_spell = "Heal"
+        print(f"You have selected {chosen_spell}")
+        character["spells"] = character["spells"].append(spells_dict[chosen_spell])
+    return character
+
+
 def make_character(name):
     # on character creation
     character = {"name": name,
