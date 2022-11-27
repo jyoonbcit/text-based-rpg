@@ -5,7 +5,9 @@ Jihoon Yoon
 A01322277
 """
 
-# save functionality using IO maybe
+
+def make_board(rows, columns):
+
 
 def make_character(name):
     # on character creation
@@ -36,14 +38,16 @@ def level_up(character):
     character["exp_needed"] = exp_to_level_up(character)
     return character
 
+def describe_current_location(board, character):
 
-def make_board(rows, columns):
-    # for rows, columns
-    return
+
+def get_user_choice():
 
 
 def start_game(): # called from main
-    board = make_board(10, 10)
+    rows = 5
+    columns = 5
+    board = make_board(rows, columns)
     character = make_character("Player name")
     achieved_goal = False
     while not achieved_goal:
