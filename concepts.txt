@@ -115,4 +115,48 @@ UBC:
 (10, 3)
     - YVR Airport
 
+Bosses:
+
+    Oakridge:
+        - Tree(defence) based (Attack Focus)
+        Enemies:
+            - Snapping Turtle
+            - Bear
+            - Woodland Elf (Archer)
+
+    UBC:
+        - (attack) based (Defence Focus)
+        Enemies:
+            -
+            -
+            -
+
+    Gastown:
+        - Clockwork/Time(slows speed) based (Speed Focus)
+        Enemies:
+            - Clockwork Squirrels
+            - Clockwork Automatons
+            - Steampunk Gentleman
+            - Steampunk Lady
+
+    Final (At BC Place Stadium):
+        -
+
+
+    Extras:
+        - Kraken:
+            - English Bay
+
+        - Dragon:
+            - Sun Yat Sen Gardens
+
+        - Griffin:
+            - Queen Elizabeth Park
+
+        - Thunderbird:
+            - YVR Airport
+
+        - Sea Bear:
+            - North Vancouver
+
 
