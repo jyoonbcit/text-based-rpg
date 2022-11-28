@@ -1,1 +1,11 @@
+GAME START
+    You
 
+
+YOU HAVE DIED
+    - As you come into this world, something else is also born. You begin your life, and it begins a journey towards you.
+    It moves slowly, but it never stops. Wherever you go, whatever path you take, it will follow.
+    Never faster, never slower. Always coming. You will run, it will walk. You will rest, it will not.
+    One day, you will linger in the same place too long. You will sit too still or sleep too deep.
+    And when, too late, you rise to go, you will notice a second shadow next to yours. Your life will then be over.
+                                                                                                        - The Doctor
