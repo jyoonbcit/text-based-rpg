@@ -16,7 +16,7 @@ A01322277
 import random
 
 
-START = (0, 0)
+START = (9, 2)
 
 
 # do we need a make_board if we're using a static map?
