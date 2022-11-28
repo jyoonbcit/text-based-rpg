@@ -1,63 +1,63 @@
 Stations:
 
-(1, 8)
+(0, 7)
 Lonsdale Quay (Seabus)
 
-(2, 3)
+(1, 2)
 Waterfront Station (Canada Line, Expo Line, Seabus)
 
-(2, 5)
+(1, 4)
 Granville Station (Expo Line)
 Vancouver City Centre Station (Canada Line)
 
-(3, 6)
+(2, 7)
 Science World/Chinatown (Expo Line)
 
-(4, 7)
+(3, 6)
 Commercial/Broadway Station (Expo Line)
 
-(7, 9)
+(6, 8)
 Joyce Collingwood Station (Expo Line, R4)
 
-(4, 5)
+(3, 4)
 Broadway City Hall Station (Canada Line, 99B)
 
-(7, 5)
+(6, 4)
 Oakridge 41st Station (Canada Line, R4)
 
-(9, 5)
+(8, 4)
 Marine Drive Station (Canada Line)
 
-(10, 4)
+(9, 3)
 YVR Airport Station (Canada Line)
 
-(4, 1)
+(3, 0)
 UBC Exchange Station (R4, 99B)
 
 Locations:
 
-(1, 5)
+(0, 4)
     - Stanley Park
 
 Downtown:
-(2, 5)
+(1, 4)
     - BCIT
     - Holy Rosary Cathedral
     - Canada Place
     - St Paul's Hospital
-(2, 6)
+(1, 5)
     - Gastown
     - Harbour Centre
     - VPL
-(3, 5)
+(2, 4)
     - Granville Island (enter and exit only from the South)
-(3, 6)
+(2, 5)
     - BC Place Stadium
     - Sun Yat Sen Gardens
     - Science World
 -------------------------------
 
-(3, 4)
+(2, 3)
     - Vancouver Maritime Museum
     - Macmillan Space Center
         - "who’s been playing about with the stars? They’re all in the wrong places. For this time zone anyway.
@@ -65,34 +65,34 @@ Downtown:
           If I didn’t know better, I’d say I’ve travelled 7,000 (x) years into the future."
 
 UBC:
-(4, 1)
+(3, 0)
     -
-(4, 2)
+(3, 1)
     - Jericho Beach
-(5, 1)
-(5, 2)
+(4, 0)
+(4, 1)
     - Pacific Spirit National Park
-(6, 2)
+(5, 1)
     - Pacific Spirit National Park
 -----------------------------------
 
-(4, 3)
+(3, 2)
     - Indigo
 
-(4, 4)
+(3, 3)
     - Vancouver General Hospital
     - Toys R Us
 
-(4, 5)
+(3, 4)
     - Whole Foods
 
-(5, 7)
+(4, 6)
     - St. Joseph's Parish
 
-(6, 5)
+(5, 4)
     - Queen Elizabeth Park
 
-(6, 7)
+(5, 6)
     - Mysterious House
     - London Drugs
     - McDonald's
@@ -100,19 +100,19 @@ UBC:
     - Starbucks
     - Vancity (ATM's don't work)
 
-(7, 5)
+(6, 4)
     - Oakridge Mall (Under Construction)
 
-(7, 7)
+(6, 6)
     - Corpus Christi Parish
 
-(7, 9)
+(6, 8)
     - St. Mary's Parish
 
-(9, 5)
+(8, 4)
     - Cineplex Cinema
 
-(10, 3)
+(9, 2)
     - YVR Airport
 
 Bosses:
