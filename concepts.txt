@@ -25,6 +25,9 @@ Broadway City Hall Station (Canada Line, 99B)
 (7, 5)
 Oakridge 41st Station (Canada Line, R4)
 
+(9, 5)
+Marine Drive Station (Canada Line)
+
 (10, 4)
 YVR Airport Station (Canada Line)
 
@@ -32,3 +35,83 @@ YVR Airport Station (Canada Line)
 UBC Exchange Station (R4, 99B)
 
 Locations:
+
+(1, 5)
+    - Stanley Park
+
+Downtown:
+(2, 5)
+    - BCIT
+    - Holy Rosary Cathedral
+    - Canada Place
+    - St Paul's Hospital
+(2, 6)
+    - Gastown
+    - Harbour Centre
+    - VPL
+(3, 5)
+    - Granville Island (enter and exit only from the South)
+(3, 6)
+    - BC Place Stadium
+    - Sun Yat Sen Gardens
+    - Science World
+-------------------------------
+
+(3, 4)
+    - Vancouver Maritime Museum
+    - Macmillan Space Center
+        - "who’s been playing about with the stars? They’re all in the wrong places. For this time zone anyway.
+          And no, I didn’t time travel to get here. I can feel time travel.
+          If I didn’t know better, I’d say I’ve travelled 7,000 (x) years into the future."
+
+UBC:
+(4, 1)
+    -
+(4, 2)
+    - Jericho Beach
+(5, 1)
+(5, 2)
+    - Pacific Spirit National Park
+(6, 2)
+    - Pacific Spirit National Park
+-----------------------------------
+
+(4, 3)
+    - Indigo
+
+(4, 4)
+    - Vancouver General Hospital
+    - Toys R Us
+
+(4, 5)
+    - Whole Foods
+
+(5, 7)
+    - St. Joseph's Parish
+
+(6, 5)
+    - Queen Elizabeth Park
+
+(6, 7)
+    - Mysterious House
+    - London Drugs
+    - McDonald's
+    - Tim Horton's
+    - Starbucks
+
+(7, 5)
+    - Oakridge Mall (Under Construction)
+
+(7, 7)
+    - Corpus Christi Parish
+
+(7, 9)
+    - St. Mary's Parish
+
+(9, 5)
+    - Cineplex Cinema
+
+(10, 3)
+    - YVR Airport
+
+
