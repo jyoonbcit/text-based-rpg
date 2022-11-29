@@ -114,6 +114,12 @@ def move(character, x_movement, y_movement):
     character["position"] = (x_position + x_movement, y_position + y_movement)
     return character
 
+def validate_move(board, character, direction):
+    if character["position"] in WATER:
+        return False
+    else:
+        return True
+
 
 def describe_current_location(character):
     print(f"You are at {str(character['position'])}")
