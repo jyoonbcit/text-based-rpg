@@ -124,7 +124,21 @@ def validate_move(board, character, direction):
 def describe_current_location(character):
     print(f"You are at {str(character['position'])}")
 
-def get_user_direction():
+def get_user_direction(character):
+    input("Move by entering W, A, S, or D")
+    if "W".lower:
+        pass
+        # x += 1
+    if "A".lower:
+        pass
+        # y -= 1
+    if "S".lower:
+        pass
+        # x -= 1
+    if "D".lower:
+        pass
+        # y += 1
+    return
 
 
 def start_game(): # called from main
@@ -138,7 +152,7 @@ def start_game(): # called from main
     while not achieved_goal:
         # // Tell the user where they are
         describe_current_location(character)
-        direction = get_user_direction( )
+        direction = get_user_direction(character)
         valid_move = validate_move(board, character, direction)
         if valid_move:
             move(character, x_movement, y_movement)
