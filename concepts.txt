@@ -11,7 +11,7 @@ Granville Station (Expo Line)
 Vancouver City Centre Station (Canada Line)
 
 (2, 7)
-Science World/Chinatown (Expo Line)
+Science World/Chinatown Station (Expo Line)
 
 (3, 6)
 Commercial/Broadway Station (Expo Line)
