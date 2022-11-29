@@ -33,7 +33,7 @@ YVR Airport Station (Canada Line)
 
 (3, 0)
 UBC Exchange Station (R4, 99B)
-
+---------------------------------------------------------------------------------------------------------------------
 Locations:
 
 (0, 4)
@@ -70,6 +70,7 @@ UBC:
 (3, 1)
     - Jericho Beach
 (4, 0)
+    -
 (4, 1)
     - Pacific Spirit National Park
 (5, 1)
