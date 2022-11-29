@@ -125,17 +125,17 @@ def describe_current_location(character):
     print(f"You are at {str(character['position'])}")
 
 def get_user_direction(character):
-    input("Move by entering W, A, S, or D")
-    if "W".lower:
+    direction = input("Move by entering W, A, S, or D")
+    if direction == "W".lower:
         pass
         # x += 1
-    if "A".lower:
+    if direction == "A".lower:
         pass
         # y -= 1
-    if "S".lower:
+    if direction == "S".lower:
         pass
         # x -= 1
-    if "D".lower:
+    if direction == "D".lower:
         pass
         # y += 1
     return
