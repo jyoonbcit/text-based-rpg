@@ -127,8 +127,23 @@ def validate_move(board, character, direction):
         return True
 
 
+def display_dialogue(position):
+    with open("dialogue.txt") as file_object:
+        lines = file_object.readlines()
+        # bunch of if statements for each location
+        if position == (1, 4):
+            print("".join(lines[:]))
+
+
+def display_choices(position):
+
+
+
 def describe_current_location(character):
     print(f"You are at {str(character['position'])}")
+    if character["position"] in LOCATIONS:
+        display_dialogue(character['position'])
+        display_choices(str(character['position']))
 
 
 def get_user_direction(character):
