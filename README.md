@@ -27,3 +27,18 @@ jyoonbcit
 
 ## Any important comments you'd like to make about your work:
 Replace this line with any comments you want to share
+
+## Required elements
+| Element                      | Line |
+|------------------------------|------|
+| Tuple                        |      |
+| List                         |      |
+| Dict/List Comprehension      |      | 
+| Selection using if-statement |      |
+| Repetition for or while loop |      |
+| Membership operator (in)     |      |
+| Range function               |      |
+| Functions from itertools     |      |
+| Enumerate function           |      |
+| Filter or map function       |      |
+| Random module                |      |
