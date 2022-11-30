@@ -14,17 +14,19 @@ A01322277
 
 
 import random
+import json
 
 
 START = (9, 2)
-WATER = [(0, 0), (0, 1), (0, 2), (0, 3), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 6), (1, 7), (1, 8), (1, 9),
+WATER = ((0, 0), (0, 1), (0, 2), (0, 3), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 6), (1, 7), (1, 8), (1, 9),
          (2, 0), (2, 1), (2, 2), (5, 0), (6, 0), (6, 1), (7, 0), (7, 1), (7, 2), (8, 0), (8, 3), (9, 0), (9, 4), (9, 5),
-         (9, 6), (9, 7), (9, 8), (9, 9)]
-OAKRIDGE = [(5, 3), (5, 4), (5, 5), (5, 6), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6), (7, 3), (7, 4), (7, 5), (7, 6)]
-UBC = [(3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (5, 1), (5, 2)]
-DOWNTOWN = [(1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (2, 6), (3, 4), (3, 5), (3, 6), (4, 4), (4, 5), (4, 6)]
-LOCATIONS = [(0, 7), (1, 4), (1, 5), (2, 5), (2, 3), (3, 2), (3, 3), (3, 4), (4, 6), (5, 6), (6, 4), (6, 6), (6, 8), (8, 4),
-             (9, 2), (9, 3)]
+         (9, 6), (9, 7), (9, 8), (9, 9))
+OAKRIDGE = ((5, 3), (5, 4), (5, 5), (5, 6), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6), (7, 3), (7, 4), (7, 5), (7, 6))
+UBC = ((3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (5, 1), (5, 2))
+DOWNTOWN = ((1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (2, 6), (3, 4), (3, 5), (3, 6), (4, 4), (4, 5), (4, 6))
+LOCATIONS = ((0, 7), (1, 4), (1, 5), (2, 5), (2, 3), (3, 2), (3, 3), (3, 4), (4, 6), (5, 6), (6, 4), (6, 6), (6, 8), (8, 4),
+             (9, 2), (9, 3))
+
 
 
 # do we need a make_board if we're using a static map?
@@ -135,8 +137,22 @@ def display_dialogue(position):
             print("".join(lines[:]))
 
 
-def display_choices(position):
+def display_transit(line):
+    with open("transit.json") as file_object:
+        lines = json.load(file_object)
+        for station, name in enumerate(lines[line]):
+            print(station, name)
 
+
+def display_choices(position):
+    with open("locations.json") as file_object:
+        locations = json.load(file_object)
+        for location, name in enumerate(locations[position]):
+            print(location, name)
+
+
+def check_for_challenges():
+    if
 
 
 def describe_current_location(character):
