@@ -23,6 +23,8 @@ WATER = [(0, 0), (0, 1), (0, 2), (0, 3), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2),
 OAKRIDGE = [(5, 3), (5, 4), (5, 5), (5, 6), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6), (7, 3), (7, 4), (7, 5), (7, 6)]
 UBC = [(3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (5, 1), (5, 2)]
 DOWNTOWN = [(1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (2, 6), (3, 4), (3, 5), (3, 6), (4, 4), (4, 5), (4, 6)]
+LOCATIONS = [(0, 7), (1, 4), (1, 5), (2, 5), (2, 3), (3, 2), (3, 3), (3, 4), (4, 6), (5, 6), (6, 4), (6, 6), (6, 8), (8, 4),
+             (9, 2), (9, 3)]
 
 
 # do we need a make_board if we're using a static map?
@@ -117,12 +119,17 @@ def move(character, x_movement, y_movement):
 def validate_move(board, character, direction):
     if character["position"] in WATER:
         return False
+    elif character["position"] in UBC and character["level"] < 2:
+        return False
+    elif character["position"] in DOWNTOWN and character["level"] < 3:
+        return False
     else:
         return True
 
 
 def describe_current_location(character):
     print(f"You are at {str(character['position'])}")
+
 
 def get_user_direction(character):
     direction = input("Move by entering W, A, S, or D")
