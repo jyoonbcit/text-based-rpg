@@ -32,6 +32,18 @@ LOCATIONS = ((0, 7), (1, 4), (1, 5), (2, 5), (2, 3), (3, 2), (3, 3), (3, 4), (4,
 
 
 # do we need a make_board if we're using a static map?
+def display_title():
+    with open("dialogue.txt") as file_object:
+        lines = file_object.readlines()
+        print("".join(lines[1:16]))
+
+
+def display_prologue():
+    with open("dialogue.txt") as file_object:
+        lines = file_object.readlines()
+        print("".join(lines[17:19]))
+
+
 def make_board(rows, columns):
     """
     Create all possible X and Y positions on a grid.
@@ -182,11 +194,13 @@ def display_transit(line):
 
 
 def display_choices(position):
+    choices = []
     with open("locations.json") as file_object:
         locations = json.load(file_object)
-        for location, name in enumerate(locations[position]):
-            print(location, name)
-
+        for location_number, name in enumerate(locations[position]):
+            print(location_number, name)
+            choices.append(name)
+    return choices
 
 def check_for_challenges():
     if
@@ -195,9 +209,11 @@ def check_for_challenges():
 
 def describe_current_location(character):
     print(f"You are at {str(character['position'])}")
+    choices = []
     if character["position"] in LOCATIONS:
         display_dialogue(character['position'])
-        display_choices(str(character['position']))
+        location_choices = display_choices(str(character['position']))
+        choices += location_choices
         there_is_a_challenge = check_for_challenges()
         if there_is_a_challenge:
             execute_challenge_protocol(character)
@@ -227,12 +243,13 @@ def start_game(): # called from main
     # done
     board = make_board(rows, columns)
     # done but could be adjusted
+    display_title()
     character = make_character(input("Enter your name: "))
     achieved_goal = False
     while not achieved_goal:
         # // Tell the user where they are
-        describe_current_location(character)
-        direction = get_user_choice(character)
+        choices = describe_current_location(character)
+        choice = get_user_choice(choices)
         valid_move = validate_move(board, character, direction)
         if valid_move:
             move(character, x_movement, y_movement)

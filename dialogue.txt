@@ -12,9 +12,10 @@ GAME START
          ░ ░      ░░   ░   ░   ▒   ░          ░       ░░░ ░ ░   ░░   ░    ░
                    ░           ░  ░░ ░                  ░        ░        ░  ░
                                    ░
+    * Hail traveller! What be thy name? *
 
 PROLOGUE
-    Time has gone very wrong
+    Time has gone very wrong in the city of Vancouver.
 
 YOU HAVE DIED
     - As you come into this world, something else is also born. You begin your life, and it begins a journey towards you.
@@ -37,4 +38,6 @@ YOU HAVE DIED
     And when the entire mountain is chiseled away, the first second of eternity will have passed.”
     You must think that’s a hell of a long time. Personally, I think that’s a hell of a bird.
                                                                                                         - The Doctor
+
+Pacific Spirit National Park
 
