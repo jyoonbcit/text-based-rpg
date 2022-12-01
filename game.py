@@ -235,18 +235,23 @@ def describe_current_location(character):
 
 def move(character):
     direction = input("Move by entering W, A, S, or D")
+    x_position, y_position = character["position"]
     if direction == "W".lower:
         # what is board here?
-        validate_move(board, character, "W")
+        if validate_move(board, character, "W"):
+            character["position"] = (x_position, y_position + 1)
         # x += 1
     if direction == "A".lower:
-        validate_move(board, character, "A")
+        if validate_move(board, character, "A"):
+            character["position"] = (x_position - 1, y_position)
         # y -= 1
     if direction == "S".lower:
-        validate_move(board, character, "S")
+        if validate_move(board, character, "S"):
+            character["position"] = (x_position, y_position - 1)
         # x -= 1
     if direction == "D".lower:
-        validate_move(board, character, "D")
+        if validate_move(board, character, "D"):
+            character["position"] = (x_position + 1, y_position)
         # y += 1
     return
 
