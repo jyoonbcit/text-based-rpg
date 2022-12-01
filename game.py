@@ -134,11 +134,6 @@ def level_up(character):
     return character
 
 
-def move(character, x_movement, y_movement):
-    (x_position, y_position) = character["position"]
-    character["position"] = (x_position + x_movement, y_position + y_movement)
-    return character
-
 def validate_move(board, character, direction):
     # checks out what's in next position
     x_position, y_position = character["position"]
@@ -238,19 +233,20 @@ def describe_current_location(character):
     return #choices
 
 
-def get_user_choice(character):
+def move(character):
     direction = input("Move by entering W, A, S, or D")
     if direction == "W".lower:
-        pass
+        # what is board here?
+        validate_move(board, character, "W")
         # x += 1
     if direction == "A".lower:
-        pass
+        validate_move(board, character, "A")
         # y -= 1
     if direction == "S".lower:
-        pass
+        validate_move(board, character, "S")
         # x -= 1
     if direction == "D".lower:
-        pass
+        validate_move(board, character, "D")
         # y += 1
     return
 
