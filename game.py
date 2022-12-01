@@ -133,6 +133,7 @@ def move(character, x_movement, y_movement):
     return character
 
 def validate_move(board, character, direction):
+    # checks out what's in next position
     x_position, y_position = character["position"]
     if direction == "W":
         new_position = (x_position, y_position + 1)
@@ -143,10 +144,12 @@ def validate_move(board, character, direction):
     else:
         new_position = (x_position + 1, y_position)
 
+    # if the next position is out of bounds, return False
     if (new_position in WATER) or\
             (new_position in UBC and character["level"] < 2) or\
             (new_position in DOWNTOWN and character["level"] < 3):
         return False
+    # else return True
     else:
         return True
 
