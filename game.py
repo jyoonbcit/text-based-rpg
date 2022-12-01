@@ -40,13 +40,13 @@ def display_title():
     """
     Display title
     """
-    with open("dialogue.txt") as file_object:
+    with open("dialogue.txt", encoding='utf-8') as file_object:
         lines = file_object.readlines()
         print("".join(lines[1:16]))
 
 
 def display_prologue():
-    with open("dialogue.txt") as file_object:
+    with open("dialogue.txt", encoding='utf-8') as file_object:
         lines = file_object.readlines()
         print("".join(lines[17:19]))
 
@@ -157,7 +157,7 @@ def validate_move(board, character, direction):
 
 
 def display_dialogue(position):
-    with open("dialogue.txt") as file_object:
+    with open("dialogue.txt", encoding='utf-8') as file_object:
         lines = file_object.readlines()
         # bunch of if statements for each location
         if position == (0, 7):
@@ -224,12 +224,12 @@ def describe_current_location(character):
     print(f"You are at {str(character['position'])}")
     choices = []
     if character["position"] in LOCATIONS:
-        display_dialogue(character['position'])
-        location_choices = display_choices(str(character['position']))
-        choices += location_choices
         there_is_a_challenge = check_for_challenges()
         if there_is_a_challenge:
             execute_challenge_protocol(character)
+        display_dialogue(character['position'])
+        location_choices = display_choices(str(character['position']))
+        choices += location_choices
     return #choices
 
 
