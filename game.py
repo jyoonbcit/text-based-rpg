@@ -5,12 +5,14 @@ Jihoon Yoon
 A01322277
 """
 # TO-DO-LIST
-# Add descriptions to the board positions
+# Add descriptions to the board positions in dialogue.txt
 # Implement pick_spells for level 2, 3, etc
 # Get display board to display
 # Assign START (global constant) to the beginning point of our map
 # Add ASCII art
 # For myself (Jihoon): Check if return statements are necessary for variable adjustments, eg. move fn
+# Game flow: describe place, *display choices, *decorate choices if there is a challenge, save choices in a list/dict
+#                            ^if choice is a transit station: display choices of station
 
 
 import random
@@ -133,8 +135,43 @@ def display_dialogue(position):
     with open("dialogue.txt") as file_object:
         lines = file_object.readlines()
         # bunch of if statements for each location
+        if position == (0, 7):
+            print("".join(lines[:]))
         if position == (1, 4):
             print("".join(lines[:]))
+        if position == (1, 5):
+            print("".join(lines[:]))
+        if position == (2, 3):
+            print("".join(lines[:]))
+        if position == (2, 5):
+            print("".join(lines[:]))
+        if position == (3, 0):
+            print("".join(lines[:]))
+        if position == (3, 2):
+            print("".join(lines[:]))
+        if position == (3, 3):
+            print("".join(lines[:]))
+        if position == (3, 4):
+            print("".join(lines[:]))
+        if position == (3, 6):
+            print("".join(lines[:]))
+        if position == (4, 6):
+            print("".join(lines[:]))
+        if position == (5, 6):
+            print("".join(lines[:]))
+        if position == (6, 4):
+            print("".join(lines[:]))
+        if position == (6, 6):
+            print("".join(lines[:]))
+        if position == (6, 8):
+            print("".join(lines[:]))
+        if position == (8, 4):
+            print("".join(lines[:]))
+        if position == (9, 2):
+            print("".join(lines[:]))
+        if position == (9, 3):
+            print("".join(lines[:]))
+
 
 
 def display_transit(line):
@@ -155,14 +192,19 @@ def check_for_challenges():
     if
 
 
+
 def describe_current_location(character):
     print(f"You are at {str(character['position'])}")
     if character["position"] in LOCATIONS:
         display_dialogue(character['position'])
         display_choices(str(character['position']))
+        there_is_a_challenge = check_for_challenges()
+        if there_is_a_challenge:
+            execute_challenge_protocol(character)
+    return #choices
 
 
-def get_user_direction(character):
+def get_user_choice(character):
     direction = input("Move by entering W, A, S, or D")
     if direction == "W".lower:
         pass
@@ -190,14 +232,11 @@ def start_game(): # called from main
     while not achieved_goal:
         # // Tell the user where they are
         describe_current_location(character)
-        direction = get_user_direction(character)
+        direction = get_user_choice(character)
         valid_move = validate_move(board, character, direction)
         if valid_move:
             move(character, x_movement, y_movement)
             describe_current_location(character)
-            there_is_a_challenge = check_for_challenges()
-            if there_is_a_challenge:
-                execute_challenge_protocol(character)
             if character_has_leveled():
                 execute_glow_up_protocol()
                 achieved_goal = check_if_goal_attained(board, character)

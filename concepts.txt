@@ -41,25 +41,25 @@ Locations:
 
 Downtown:
 (1, 4)
-    - BCIT
-    - Holy Rosary Cathedral
-    - Canada Place
-    - St Paul's Hospital
+    - BCIT (special)
+    - Holy Rosary Cathedral (church)
+    - Canada Place (
+    - St Paul's Hospital (Hospital)
 (1, 5)
-    - Gastown
+    - Gastown (boss)
     - Harbour Centre
-    - VPL
+    - VPL (library)
 (2, 4)
     - Granville Island (enter and exit only from the South)
 (2, 5)
-    - BC Place Stadium
-    - Sun Yat Sen Gardens
-    - Science World
+    - BC Place Stadium (boss)
+    - Sun Yat Sen Gardens (boss)
+    - Science World (
 -------------------------------
 
 (2, 3)
-    - Vancouver Maritime Museum
-    - Macmillan Space Center
+    - Vancouver Maritime Museum (boat)
+    - Macmillan Space Center (dialogue)
         - "who’s been playing about with the stars? They’re all in the wrong places. For this time zone anyway.
           And no, I didn’t time travel to get here. I can feel time travel.
           If I didn’t know better, I’d say I’ve travelled 7,000 (x) years into the future."
@@ -78,43 +78,43 @@ UBC:
 -----------------------------------
 
 (3, 2)
-    - Indigo
+    - Indigo (library)
 
 (3, 3)
-    - Vancouver General Hospital
+    - Vancouver General Hospital (hospital)
     - Toys R Us
 
 (3, 4)
-    - Whole Foods
+    - Whole Foods (food)
 
 (4, 6)
-    - St. Joseph's Parish
+    - St. Joseph's Parish (church)
 
 (5, 4)
-    - Queen Elizabeth Park
+    - Queen Elizabeth Park (boss)
 
 (5, 6)
     - Mysterious House
-    - London Drugs
-    - McDonald's
-    - Tim Horton's
-    - Starbucks
-    - Vancity (ATM's don't work)
+    - London Drugs (magic or food)
+    - McDonald's (food)
+    - Tim Horton's (magic or food)
+    - Starbucks (magic)
+    - Vancity (ATM's don't work) Dialogue
 
 (6, 4)
-    - Oakridge Mall (Under Construction)
+    - Oakridge Mall (Under Construction) (boss)
 
 (6, 6)
-    - Corpus Christi Parish
+    - Corpus Christi Parish (church)
 
 (6, 8)
-    - St. Mary's Parish
+    - St. Mary's Parish (church)
 
 (8, 4)
-    - Cineplex Cinema
+    - Cineplex Cinema (dialouge)
 
 (9, 2)
-    - YVR Airport
+    - YVR Airport (boss)
 
 Bosses:
 
