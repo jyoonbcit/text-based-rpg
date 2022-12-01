@@ -240,20 +240,28 @@ def move(character):
         # what is board here?
         if validate_move(board, character, "W"):
             character["position"] = (x_position, y_position + 1)
+        else:
+            print("Invalid move.")
         # x += 1
     if direction == "A".lower:
         if validate_move(board, character, "A"):
             character["position"] = (x_position - 1, y_position)
+        else:
+            print("Invalid move.")
         # y -= 1
     if direction == "S".lower:
         if validate_move(board, character, "S"):
             character["position"] = (x_position, y_position - 1)
+        else:
+            print("Invalid move.")
         # x -= 1
     if direction == "D".lower:
         if validate_move(board, character, "D"):
             character["position"] = (x_position + 1, y_position)
+        else:
+            print("Invalid move.")
         # y += 1
-    return
+    # doesn't need return I think
 
 
 def start_game(): # called from main
@@ -267,20 +275,14 @@ def start_game(): # called from main
     display_prologue()
     achieved_goal = False
     while not achieved_goal:
-        # // Tell the user where they are
-        choices = describe_current_location(character)
-        choice = get_user_choice(choices)
-        valid_move = validate_move(board, character, direction)
-        if valid_move:
-            move(character, x_movement, y_movement)
-            describe_current_location(character)
-            if character_has_leveled():
-                execute_glow_up_protocol()
-                achieved_goal = check_if_goal_attained(board, character)
-        else:
-            # // Tell the user they can’t go in that direction
-            print("You can't go there!")
-            # // Print end of game stuff like congratulations or sorry you died
+        # Tell the user where they are
+        describe_current_location(character)
+        # Asks user for move input, validates input, moves. If invalid, tells user.
+        move()
+        if character_has_leveled():
+            execute_glow_up_protocol()
+            achieved_goal = check_if_goal_attained(board, character)
+    # Print end of game stuff like congratulations or sorry you died
 
 
 
