@@ -28,11 +28,18 @@ UBC = ((3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (4, 0), (4, 1), (4, 2), (4, 3), (
 DOWNTOWN = ((1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (2, 6), (3, 4), (3, 5), (3, 6), (4, 4), (4, 5), (4, 6))
 LOCATIONS = ((0, 7), (1, 4), (1, 5), (2, 5), (2, 3), (3, 2), (3, 3), (3, 4), (4, 6), (5, 6), (6, 4), (6, 6), (6, 8),
              (8, 4), (9, 2), (9, 3))
+CHURCH = ()
+HOSPITAL = ()
+CONSUMABLES = ()
+
 
 
 
 # do we need a make_board if we're using a static map?
 def display_title():
+    """
+    Display title
+    """
     with open("dialogue.txt") as file_object:
         lines = file_object.readlines()
         print("".join(lines[1:16]))
@@ -214,7 +221,7 @@ def display_choices(position):
     return choices
 
 def check_for_challenges():
-    if
+    pass
 
 
 
@@ -256,6 +263,7 @@ def start_game(): # called from main
     # done but could be adjusted
     display_title()
     character = make_character(input("Enter your name: "))
+    display_prologue()
     achieved_goal = False
     while not achieved_goal:
         # // Tell the user where they are
@@ -270,7 +278,9 @@ def start_game(): # called from main
                 achieved_goal = check_if_goal_attained(board, character)
         else:
             # // Tell the user they can’t go in that direction
+            print("You can't go there!")
             # // Print end of game stuff like congratulations or sorry you died
+
 
 
 def main():
