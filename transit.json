@@ -1,13 +1,13 @@
 {
   "Expo_line": {
-    "Waterfront": "(1, 5)",
+    "Waterfront (Expo line)": "(1, 5)",
     "Granville Station": "(1, 4)",
     "Science World/Chinatown Station": "(2, 5)",
     "Commercial/Broadway Station": "(3, 6)",
     "Joyce Collingwood Station": "(6, 8)"
   },
   "Canada_line": {
-    "Waterfront": "(1, 5)",
+    "Waterfront (Canada Line)": "(1, 5)",
     "Vancouver City Centre Station": "(1, 4)",
     "Broadway City Hall Station": "(3, 4)",
     "Oakridge 41st Station": "(6, 4)",
@@ -20,11 +20,11 @@
     "Joyce Collingwood Station": "(6, 8)"
   },
   "99B_line": {
-    "UBC Exchange": "(3, 0)",
+    "UBC Exchange Station (99B Line)": "(3, 0)",
     "Broadway City Hall Station": "(3, 4)"
   },
   "Seabus": {
-    "Waterfront": "(1, 5)",
+    "Waterfront (Seabus)": "(1, 5)",
     "Lonsdale Quay": "(0, 7)"
   }
 }

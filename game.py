@@ -28,9 +28,10 @@ UBC = ((3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (4, 0), (4, 1), (4, 2), (4, 3), (
 DOWNTOWN = ((1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (2, 6), (3, 4), (3, 5), (3, 6), (4, 4), (4, 5), (4, 6))
 LOCATIONS = ((0, 7), (1, 4), (1, 5), (2, 5), (2, 3), (3, 2), (3, 3), (3, 4), (4, 6), (5, 6), (6, 4), (6, 6), (6, 8),
              (8, 4), (9, 2), (9, 3))
-CHURCH = ()
-HOSPITAL = ()
-CONSUMABLES = ()
+CHURCH = ("Holy Rosary Cathedral", "St. Joseph's Parish", "Corpus Christi Parish", "St. Mary's Parish")
+HEALTH = ("Whole Foods", "McDonald's")
+HOSPITAL = ("St Paul's Hospital", "Vancouver General Hospital", "Tim Horton's")
+MAGIC = ("London Drugs", "Starbucks")
 
 
 
@@ -38,7 +39,7 @@ CONSUMABLES = ()
 # do we need a make_board if we're using a static map?
 def display_title():
     """
-    Display title
+    Display title.
     """
     with open("dialogue.txt", encoding='utf-8') as file_object:
         lines = file_object.readlines()
@@ -46,6 +47,9 @@ def display_title():
 
 
 def display_prologue():
+    """
+    Display prologue.
+    """
     with open("dialogue.txt", encoding='utf-8') as file_object:
         lines = file_object.readlines()
         print("".join(lines[17:19]))
@@ -207,12 +211,12 @@ def display_transit(line):
 
 
 def display_choices(position):
-    choices = []
+    choices = {}
     with open("locations.json") as file_object:
         locations = json.load(file_object)
         for location_number, name in enumerate(locations[position]):
             print(location_number, name)
-            choices.append(name)
+            choices[location_number] = name
     return choices
 
 def check_for_challenges():
@@ -222,15 +226,35 @@ def check_for_challenges():
 
 def describe_current_location(character):
     print(f"You are at {str(character['position'])}")
-    choices = []
+    choices = {}
     if character["position"] in LOCATIONS:
-        there_is_a_challenge = check_for_challenges()
-        if there_is_a_challenge:
-            execute_challenge_protocol(character)
         display_dialogue(character['position'])
         location_choices = display_choices(str(character['position']))
         choices += location_choices
+    there_is_a_challenge = check_for_challenges()
+    if there_is_a_challenge:
+        execute_challenge_protocol(character)
     return #choices
+
+
+def go_to_hospital():
+
+
+def ask_for_blessing():
+
+
+def eat():
+
+
+def drink():
+
+
+def ride_transit():
+
+
+def get_user_choice(choices):
+
+
 
 
 def move(character):
@@ -276,8 +300,9 @@ def start_game(): # called from main
     achieved_goal = False
     while not achieved_goal:
         # Tell the user where they are
-        describe_current_location(character)
+        choices = describe_current_location(character)
         # Asks user for move input, validates input, moves. If invalid, tells user.
+        get_user_choice(choices)
         move()
         if character_has_leveled():
             execute_glow_up_protocol()
