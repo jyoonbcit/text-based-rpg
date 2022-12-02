@@ -108,6 +108,7 @@ def make_character(name):
                  "current_exp": 0,
                  "exp_needed": 100,
                  "position": START,
+                 "health": 100,
                  "attack": 1,
                  "defense": 1,
                  "speed": 2,
