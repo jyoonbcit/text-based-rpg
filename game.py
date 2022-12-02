@@ -242,31 +242,38 @@ def drink(drink_or_meds_place):
 
 
 def display_transit(line):
+    station
     with open("transit.json") as file_object:
         lines = json.load(file_object)
         for station, name in enumerate(lines[line]):
             print(station, name)
 
 
+def transport(stations):
+
+
+
 def ride_transit(line):
+    if line in ("Waterfront (Expo line)", "Granville Station", "Science World/Chinatown Station",
+                "Commercial/Broadway Station", "Joyce Collingwood Station (Expo line)"):
+        display_transit("Expo_line")
+    elif line in ("Waterfront (Canada Line)", "Vancouver City Centre Station",
+                  "Broadway City Hall Station (Canada line)", "Oakridge 41st Station (Canada line)",
+                  "Marine Drive Station", "YVR Airport Station"):
+        display_transit("Canada_line")
+    elif line in ("UBC Exchange Station (R4)", "Oakridge 41st Station (R4)", "Joyce Collingwood Station (R4)"):
+        display_transit("R4_bus_route")
+    elif line in ("UBC Exchange Station (99B Line)", "Broadway City Hall Station"):
+        display_transit("99B_line")
+    else:
+        display_transit("Seabus")
 
 
 def get_user_choice(choices):
     choice = input("What/Where do you want to do/go?")
     while choice not in choices:
         print("You can't do that.")
-    if choice in CHURCH:
-        ask_for_blessing(choices[choice])
-    elif choice in HEALTH:
-        eat(choices[choice])
-    elif choice in HOSPITAL:
-        go_to_hospital(choices[choice])
-    elif choice in MAGIC:
-        drink(choices[choice])
-    else:
-        ride_transit(choices[choice])
-
-
+    return choice
 
 
 def move(character):
@@ -314,7 +321,17 @@ def start_game(): # called from main
         # Tell the user where they are
         choices = describe_current_location(character)
         # Asks user for move input, validates input, moves. If invalid, tells user.
-        get_user_choice(choices)
+        choice = get_user_choice(choices)
+        if choice in CHURCH:
+            ask_for_blessing(choices[choice])
+        elif choice in HEALTH:
+            eat(choices[choice])
+        elif choice in HOSPITAL:
+            go_to_hospital(choices[choice])
+        elif choice in MAGIC:
+            drink(choices[choice])
+        else:
+            ride_transit(choices[choice])
         move()
         if character_has_leveled():
             execute_glow_up_protocol()
