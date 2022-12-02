@@ -4,8 +4,13 @@ A01324170
 """
 
 
-def make_enemy():
-    pass
+def make_enemy(name):
+    enemy = {"name": name,
+             "health": 100,
+             "attack": 1,
+             "defense": 1,
+             "speed": 2}
+    return enemy
 
 
 def encounter_enemy():
