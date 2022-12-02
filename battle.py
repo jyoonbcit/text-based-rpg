@@ -4,7 +4,15 @@ A01324170
 """
 
 
-def battle_options():
+def make_enemy():
+    pass
+
+
+def encounter_enemy():
+    pass
+
+
+def battle_options(character, enemy):
     options = ["Attack", "Skill", "Defend", "Run"]
     print("Make your decision:")
     for decision, option in enumerate(options, 0):
@@ -13,7 +21,7 @@ def battle_options():
     if choice != "0" or choice != "1" or choice != "2" or choice != "3":
         print("Invalid choice!")
     elif choice == "0":
-        pass
+        enemy["health"]
     elif choice == "1":
         pass
     elif choice == "2":
