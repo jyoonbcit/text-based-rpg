@@ -295,17 +295,17 @@ def transport(stations, line, character):
 def ride_transit(line, character):
     if line in ("Waterfront (Expo line)", "Granville Station", "Science World/Chinatown Station",
                 "Commercial/Broadway Station", "Joyce Collingwood Station (Expo line)"):
-        display_transit("Expo_line")
+        transport(display_transit("Expo_line"), "Expo_line", character)
     elif line in ("Waterfront (Canada Line)", "Vancouver City Centre Station",
                   "Broadway City Hall Station (Canada line)", "Oakridge 41st Station (Canada line)",
                   "Marine Drive Station", "YVR Airport Station"):
-        display_transit("Canada_line")
+        transport(display_transit("Canada_line"), "Canada_line", character)
     elif line in ("UBC Exchange Station (R4)", "Oakridge 41st Station (R4)", "Joyce Collingwood Station (R4)"):
-        display_transit("R4_bus_route")
+        transport(display_transit("R4_bus_route"), "R4_bus_route", character)
     elif line in ("UBC Exchange Station (99B Line)", "Broadway City Hall Station"):
-        display_transit("99B_line")
+        transport(display_transit("99B_line"), "99B_line", character)
     else:
-        display_transit("Seabus")
+        transport(display_transit("Seabus"), "Seabus", character)
 
 
 def get_user_choice(choices):
