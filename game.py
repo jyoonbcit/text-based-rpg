@@ -229,24 +229,55 @@ def describe_current_location(character):
     return #choices
 
 
-def go_to_hospital(hospital):
+def go_to_hospital(hospital, character):
+    if hospital == "Tim Horton's":
+        print("Grabbed Timbits and a cup of JAVA.")
+    print("Health and magic restored!")
+    # refill character stats
 
 
-def ask_for_blessing(church):
+def ask_for_blessing(church, character):
+    print("You ask for a blessing.")
+    if church == "St. Joseph's Parish":
+        print("Defence increased for 3 battles!")
+        # increase defence
+    elif church == "Corpus Christi Parish":
+        print("Attack increased for 3 battles!")
+        # increase attack
+    elif church == "St. Mary's Parish":
+        print("Speed increased for 3 battles!")
+        # increase speed
+    else:
+        print("All stats increased for 5 battles!")
+        # increase all
 
 
-def eat(food_place):
+def eat(food_place, character):
+    if food_place == "McDonald's":
+        print("Grabbed a Big Mac.")
+    else:
+        print("Raided the groceries.")
+    print("Health restored!")
+    # Refill Health
 
 
-def drink(drink_or_meds_place):
+def drink_or_meds(drink_or_meds_place, character):
+    if drink_or_meds_place == "London Drugs":
+        print("Raided the pharmacy.")
+    else:
+        print("Grabbed a latte.")
+    print("Magic restored!")
+    # refill magic
 
 
 def display_transit(line):
-    station
+    stations = {}
     with open("transit.json") as file_object:
         lines = json.load(file_object)
-        for station, name in enumerate(lines[line]):
-            print(station, name)
+        for station_number, name in enumerate(lines[line]):
+            print(station_number, name)
+            stations[station_number] = name
+
 
 
 def transport(stations):
@@ -329,7 +360,7 @@ def start_game(): # called from main
         elif choice in HOSPITAL:
             go_to_hospital(choices[choice])
         elif choice in MAGIC:
-            drink(choices[choice])
+            drink_or_meds(choices[choice])
         else:
             ride_transit(choices[choice])
         move()
