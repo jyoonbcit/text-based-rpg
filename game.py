@@ -17,6 +17,7 @@ A01322277
 
 import random
 import json
+import ast
 
 
 START = (9, 2)
@@ -277,14 +278,21 @@ def display_transit(line):
         for station_number, name in enumerate(lines[line]):
             print(station_number, name)
             stations[station_number] = name
+    return stations
 
 
 
-def transport(stations):
+def transport(stations, line, character):
+    destination = input("Where do you want to go?")
+    while destination not in stations:
+        print("That is not a station.")
+    with open("transit.json") as transit:
+        station = json.load(transit)
+        character["position"] = ast.literal_eval(station[line[destination]])
 
 
 
-def ride_transit(line):
+def ride_transit(line, character):
     if line in ("Waterfront (Expo line)", "Granville Station", "Science World/Chinatown Station",
                 "Commercial/Broadway Station", "Joyce Collingwood Station (Expo line)"):
         display_transit("Expo_line")
@@ -361,9 +369,10 @@ def start_game(): # called from main
             go_to_hospital(choices[choice])
         elif choice in MAGIC:
             drink_or_meds(choices[choice])
+        elif choice == "move":
+            move()
         else:
-            ride_transit(choices[choice])
-        move()
+            ride_transit(choices[choice], character)
         if character_has_leveled():
             execute_glow_up_protocol()
             achieved_goal = check_if_goal_attained(board, character)
