@@ -202,14 +202,6 @@ def display_dialogue(position):
             print("".join(lines[:]))
 
 
-
-def display_transit(line):
-    with open("transit.json") as file_object:
-        lines = json.load(file_object)
-        for station, name in enumerate(lines[line]):
-            print(station, name)
-
-
 def display_choices(position):
     choices = {}
     with open("locations.json") as file_object:
@@ -237,22 +229,42 @@ def describe_current_location(character):
     return #choices
 
 
-def go_to_hospital():
+def go_to_hospital(hospital):
 
 
-def ask_for_blessing():
+def ask_for_blessing(church):
 
 
-def eat():
+def eat(food_place):
 
 
-def drink():
+def drink(drink_or_meds_place):
 
 
-def ride_transit():
+def display_transit(line):
+    with open("transit.json") as file_object:
+        lines = json.load(file_object)
+        for station, name in enumerate(lines[line]):
+            print(station, name)
+
+
+def ride_transit(line):
 
 
 def get_user_choice(choices):
+    choice = input("What/Where do you want to do/go?")
+    while choice not in choices:
+        print("You can't do that.")
+    if choice in CHURCH:
+        ask_for_blessing(choices[choice])
+    elif choice in HEALTH:
+        eat(choices[choice])
+    elif choice in HOSPITAL:
+        go_to_hospital(choices[choice])
+    elif choice in MAGIC:
+        drink(choices[choice])
+    else:
+        ride_transit(choices[choice])
 
 
 
