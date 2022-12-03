@@ -71,9 +71,12 @@ def display_board(character):
 
 def pick_spells(character):
     """
+    Gives the specified character a spell depending on their level and choice.
 
-    :param character:
-    :return:
+    :param character: dictionary
+    :precondition: character must be a dictionary containing the fields of a character dictionary
+    :postcondition: character["spells"] changes or remains the same
+    :return: dictionary
     """
     # name: [target, damage, cost]
     if character["level"] == 5:
