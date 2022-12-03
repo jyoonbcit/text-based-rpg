@@ -201,9 +201,11 @@ def validate_move(character, direction, board):
 
 def display_dialogue(position):
     """
+    Display a specific dialogue depending on a specified position.
 
-    :param position:
-    :return:
+    :param position: tuple
+    :postcondition: print a specific message based on position
+    :return: none
     """
     with open("dialogue.txt", encoding='utf-8') as file_object:
         lines = file_object.readlines()
