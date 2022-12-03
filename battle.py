@@ -89,8 +89,14 @@ def battle_options(character, enemy):
 def engage_battle(character, enemy):
     print(f"You have entered combat with {enemy['name']}")
     while character["health"] > 0 and enemy["health"] > 0 and enemy["run"] is False:
-        battle_options(character, enemy)
-        enemy_turn(character, enemy)
+        if character["speed"] >= enemy["speed"]:
+            battle_options(character, enemy)
+            if enemy["health"] > 0:
+                enemy_turn(character, enemy)
+        else:
+            enemy_turn(character, enemy)
+            if character["health"] > 0:
+                battle_options(character, enemy)
     if character["health"] <= 0:
         print("You have died. Teleporting to hospital...")
         # implement teleport to hospital
