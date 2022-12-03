@@ -10,6 +10,14 @@ import ast
 import game_2
 
 
+def do_you_want_a_ride():
+    choices = ["Yes", "No"]
+    decisions = {choice: name for choice, name in enumerate(choices, 1)}
+    for choice, name in enumerate(choices, 1):
+        print(choice, name)
+    return decisions
+
+
 def display_transit(line):
     """
 
