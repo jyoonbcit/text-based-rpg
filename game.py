@@ -213,7 +213,15 @@ def display_choices(position):
     return choices
 
 def check_for_challenges():
-    pass
+    """
+
+    :return:
+    """
+    roll = random.randint(1, 10)
+    if roll <= 7:
+        return True
+    else:
+        return False
 
 
 
@@ -231,6 +239,12 @@ def describe_current_location(character):
 
 
 def go_to_hospital(hospital, character):
+    """
+
+    :param hospital:
+    :param character:
+    :return:
+    """
     if hospital == "Tim Horton's":
         print("Grabbed Timbits and a cup of JAVA.")
     print("Health and magic restored!")
@@ -238,6 +252,12 @@ def go_to_hospital(hospital, character):
 
 
 def ask_for_blessing(church, character):
+    """
+
+    :param church:
+    :param character:
+    :return:
+    """
     print("You ask for a blessing.")
     if church == "St. Joseph's Parish":
         print("Defence increased for 3 battles!")
@@ -254,6 +274,12 @@ def ask_for_blessing(church, character):
 
 
 def eat(food_place, character):
+    """
+
+    :param food_place:
+    :param character:
+    :return:
+    """
     if food_place == "McDonald's":
         print("Grabbed a Big Mac.")
     else:
@@ -263,6 +289,12 @@ def eat(food_place, character):
 
 
 def drink_or_meds(drink_or_meds_place, character):
+    """
+
+    :param drink_or_meds_place:
+    :param character:
+    :return:
+    """
     if drink_or_meds_place == "London Drugs":
         print("Raided the pharmacy.")
     else:
@@ -272,6 +304,11 @@ def drink_or_meds(drink_or_meds_place, character):
 
 
 def display_transit(line):
+    """
+
+    :param line:
+    :return:
+    """
     stations = {}
     with open("transit.json") as file_object:
         lines = json.load(file_object)
@@ -283,9 +320,16 @@ def display_transit(line):
 
 
 def transport(stations, line, character):
+    """
+
+    :param stations:
+    :param line:
+    :param character:
+    :return:
+    """
     destination = input("Where do you want to go?")
     while destination not in stations:
-        print("That is not a station.")
+        print("That is not a station. Try again.")
     with open("transit.json") as transit:
         station = json.load(transit)
         character["position"] = ast.literal_eval(station[line[destination]])
@@ -293,6 +337,12 @@ def transport(stations, line, character):
 
 
 def ride_transit(line, character):
+    """
+
+    :param line:
+    :param character:
+    :return:
+    """
     if line in ("Waterfront (Expo line)", "Granville Station", "Science World/Chinatown Station",
                 "Commercial/Broadway Station", "Joyce Collingwood Station (Expo line)"):
         transport(display_transit("Expo_line"), "Expo_line", character)
@@ -309,13 +359,23 @@ def ride_transit(line, character):
 
 
 def get_user_choice(choices):
+    """
+
+    :param choices:
+    :return:
+    """
     choice = input("What/Where do you want to do/go?")
     while choice not in choices:
         print("You can't do that.")
-    return choice
+    return choices[choice]
 
 
 def move(character):
+    """
+
+    :param character:
+    :return:
+    """
     direction = input("Move by entering W, A, S, or D")
     x_position, y_position = character["position"]
     if direction == "W".lower:
