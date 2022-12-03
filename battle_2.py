@@ -95,7 +95,8 @@ def battle_options(character, enemy):
     :precondition: enemy must be a dictionary containing the fields of an enemy dictionary
     :postcondition: character["health"] is increased or remains the same
     :postcondition: character["mana"] is decreased or remains the same
-    :postcondition: enemy["health"] is decreased
+    :postcondition: enemy["health"] is decreased or remains the same
+    :postcondition: enemy["run"] becomes True or remains the same
     :return: none
     """
     options = ["Attack", "Skill", "Run"]
@@ -133,6 +134,21 @@ def battle_options(character, enemy):
 
 
 def engage_battle(character, enemy):
+    """
+    Display to the player what options they can take in combat.
+
+    :param character: dictionary
+    :param enemy: dictionary
+    :precondition: character must be a dictionary containing the fields of a character dictionary
+    :precondition: enemy must be a dictionary containing the fields of an enemy dictionary
+    :postcondition: character["health"] is increased, decreased, or remains the same
+    :postcondition: character["mana"] is decreased or remains the same
+    :postcondition: character["win"] becomes True or remains the same
+    :postcondition: character["location"] changes or remains the same
+    :postcondition: enemy["health"] is decreased or remains the same
+    :postcondition: enemy["run"] becomes True or remains the same
+    :return: none
+    """
     print(f"You have entered combat with {enemy['name']}")
     while character["health"] > 0 and enemy["health"] > 0 and enemy["run"] is False:
         if character["speed"] >= enemy["speed"]:
