@@ -39,5 +39,43 @@ YOU HAVE DIED
     You must think that’s a hell of a long time. Personally, I think that’s a hell of a bird.
                                                                                                         - The Doctor
 
-Pacific Spirit National Park
+(0, 7) LONSDALE QUAY
+    Welcome to North Vancouver!
+    You might encounter a Sea Bear!
+                            ... Or not ...
+
+(1, 4) DOWNTOWN
+    Welcome to the heart of Vancouver!
+    This is the central hub of all the big tech companies.
+    There is also other stuff like small shops, restaurants,
+    hotels and the Archdiocese of Vancouver. Also the Olympic Cauldron.
+            * It's also where BCIT is ;) *
+
+(1, 5) DOWNTOWN
+    Welcome to the heart of Vancouver!
+    Here you will find the revolving tower at Harbour Centre,
+    the main branch of the Vancouver Public Library (VPL),
+    and the steam clock of Gastown.
+
+(2, 3)
+    Here you find the Vancouver Maritime Museum and the
+
+    ____   __     ___     _   __ ______ ______ ___     ____   ____ __  __ __  ___
+   / __ \ / /    /   |   / | / // ____//_  __//   |   / __ \ /  _// / / //  |/  /
+  / /_/ // /    / /| |  /  |/ // __/    / /  / /| |  / /_/ / / / / / / // /|_/ /
+ / ____// /___ / ___ | / /|  // /___   / /  / ___ | / _, _/_/ / / /_/ // /  / /
+/_/    /_____//_/  |_|/_/ |_//_____/  /_/  /_/  |_|/_/ |_|/___/ \____//_/  /_/
+
+
+    at the Macmillan Space Center.
+
+(2, 5) DOWNTOWN
+    Ooooh. Remember the 2010 Winter Olympics?
+    I was only 5 at the time, but I still remember that opening ceremony.
+    Anyway, that happened at BC Place Stadium, before the roof collapsed.
+    You will also find Science World and the Sun Yat Sen Gardens in Chinatown.
+        ... Maybe you should be careful of Dragons ...
+                                                        ... Maybe ...
+
+
 

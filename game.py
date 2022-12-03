@@ -167,15 +167,15 @@ def display_dialogue(position):
         lines = file_object.readlines()
         # bunch of if statements for each location
         if position == (0, 7):
-            print("".join(lines[:]))
+            print("".join(lines[42:46]))
         if position == (1, 4):
-            print("".join(lines[:]))
+            print("".join(lines[47:53]))
         if position == (1, 5):
-            print("".join(lines[:]))
+            print("".join(lines[54:59]))
         if position == (2, 3):
-            print("".join(lines[:]))
+            print("".join(lines[60:71]))
         if position == (2, 5):
-            print("".join(lines[:]))
+            print("".join(lines[72:79]))
         if position == (3, 0):
             print("".join(lines[:]))
         if position == (3, 2):
