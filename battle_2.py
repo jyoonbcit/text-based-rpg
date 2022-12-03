@@ -172,6 +172,18 @@ def engage_battle(character, enemy):
 
 
 def calculate_exp(character, enemy):
+    """
+    Calculate the experience a character is given and if they level up.
+
+    :param character: dictionary
+    :param enemy: dictionary
+    :precondition: character must be a dictionary containing the fields of a character dictionary
+    :precondition: enemy must be a dictionary containing the fields of an enemy dictionary
+    :postcondition: character["level"] is increased or remains the same
+    :postcondition: character["current_exp"] is increased or remains the same
+    :postcondition: character["exp_needed"] is increased or remains the same
+    return: none
+    """
     if character["exp_needed"] < enemy["exp_value"]:
         character["current_exp"] += enemy["exp_value"]
         character["exp_needed"] -= enemy["exp_value"]
