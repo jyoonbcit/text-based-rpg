@@ -22,12 +22,11 @@ def encounter_enemy():
 
 def enemy_turn(character, enemy):
     if character["defense"] > enemy["attack"]:
-        print(f"You have taken 0 damage from {enemy['name']}")
-        return 0
+        print(f"You have taken 0 damage from {enemy['name']}.")
     else:
-        print(f"You have taken {character['defense'] - enemy['attack']} damage from {enemy['name']}.\n"
-              f"You have {character['health']} HP.")
-        return character["defense"] - enemy["attack"]
+        character["health"] -= enemy["attack"]
+        print(f"You have taken {enemy['attack'] - character['defense']} damage from {enemy['name']}.\n"
+              f"You have {character['health']} HP and {character['mana']} mana.")
 
 
 def battle_options(character, enemy):
@@ -36,21 +35,23 @@ def battle_options(character, enemy):
     for decision, option in enumerate(options, 0):
         print(decision, option)
     choice = input()
-    if choice != "0" or choice != "1" or choice != "2":
-        print("Invalid choice!")
+    if choice != "0" and choice != "1" and choice != "2":
+        print(f"{character['name']} does not understand your command!\nOh no, you've been caught off-guard!")
     elif choice == "0":
         enemy["health"] -= character["attack"]
     elif choice == "1":
         print(f"{character['spells']}")
         spell_choice = input("Type the spell's name: ")
-        if character["mana"] - character["spells"][spell_choice][2] < 0:
+        if character["mana"] - character["spells"][spell_choice]["cost"] < 0:
             print("Not enough mana!")
-        elif character["spells"][spell_choice][0] == "player":
-            character["health"] += character["spells"][spell_choice][1]
-            print(f"You have {character['health']} HP.")
+        elif character["spells"][spell_choice]["target"] == "player":
+            character["health"] += character["spells"][spell_choice]["strength"]
+            print(f"You have {character['health']} HP and {character['mana']} mana.")
         else:
-            enemy["health"] -= character["spells"][spell_choice][1]
-            print(f"The enemy has {enemy['health']} HP.")
+            before = enemy["health"]
+            enemy["health"] -= character["spells"][spell_choice]["strength"]
+            print(f"You have dealt {before - enemy['health']} damage!\n"
+                  f"The enemy has {enemy['health']} HP.")
     else:
         enemy["health"] = "run"
 
