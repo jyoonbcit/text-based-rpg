@@ -100,9 +100,11 @@ def pick_spells(character):
 
 def make_character(name):
     """
+    Create a character from scratch.
 
-    :param name:
-    :return:
+    :param name: string
+    :postcondition: create a character with a specified name
+    :return: dictionary
     """
     # on character creation
     character = {"name": name,
@@ -117,7 +119,6 @@ def make_character(name):
                  "speed": 2,
                  "spells": dict(),
                  "win": False}
-    pick_spells(character)
     return character
 
 
