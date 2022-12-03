@@ -18,6 +18,7 @@ A01322277
 import random
 import json
 import ast
+import time
 
 
 START = (9, 2)
@@ -29,6 +30,7 @@ UBC = ((3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (4, 0), (4, 1), (4, 2), (4, 3), (
 DOWNTOWN = ((1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (2, 6), (3, 4), (3, 5), (3, 6), (4, 4), (4, 5), (4, 6))
 LOCATIONS = ((0, 7), (1, 4), (1, 5), (2, 5), (2, 3), (3, 2), (3, 3), (3, 4), (4, 6), (5, 6), (6, 4), (6, 6), (6, 8),
              (8, 4), (9, 2), (9, 3))
+BOSS = ((1, 5), (2, 5), (3, 0), (6, 4))
 CHURCH = ("Holy Rosary Cathedral", "St. Joseph's Parish", "Corpus Christi Parish", "St. Mary's Parish")
 HEALTH = ("Whole Foods", "McDonald's")
 HOSPITAL = ("St Paul's Hospital", "Vancouver General Hospital", "Tim Horton's")
@@ -53,7 +55,7 @@ def display_prologue():
     """
     with open("dialogue.txt", encoding='utf-8') as file_object:
         lines = file_object.readlines()
-        print("".join(lines[17:19]))
+        print("".join(lines[17:23]))
 
 
 def make_board(rows, columns):
@@ -150,8 +152,10 @@ def validate_move(board, character, direction):
         new_position = (x_position - 1, y_position)
     elif direction == "S":
         new_position = (x_position, y_position - 1)
-    else:
+    elif direction == "D":
         new_position = (x_position + 1, y_position)
+    else:
+        new_position = direction
 
     # if the next position is out of bounds, return False
     if (new_position in WATER) or\
@@ -168,41 +172,39 @@ def display_dialogue(position):
         lines = file_object.readlines()
         # bunch of if statements for each location
         if position == (0, 7):
-            print("".join(lines[42:46]))
+            print("".join(lines[46:50]))
         if position == (1, 4):
-            print("".join(lines[47:53]))
+            print("".join(lines[51:57]))
         if position == (1, 5):
-            print("".join(lines[54:59]))
+            print("".join(lines[58:63]))
         if position == (2, 3):
-            print("".join(lines[60:71]))
+            print("".join(lines[64:75]))
         if position == (2, 5):
-            print("".join(lines[72:79]))
+            print("".join(lines[76:83]))
         if position == (3, 0):
-            print("".join(lines[:]))
+            print("".join(lines[84:86]))
         if position == (3, 2):
-            print("".join(lines[:]))
+            print("".join(lines[87:89]))
         if position == (3, 3):
-            print("".join(lines[:]))
+            print("".join(lines[90:92]))
         if position == (3, 4):
-            print("".join(lines[:]))
+            print("".join(lines[93:96]))
         if position == (3, 6):
-            print("".join(lines[:]))
+            print("".join(lines[97:100]))
         if position == (4, 6):
-            print("".join(lines[:]))
+            print("".join(lines[101:104]))
         if position == (5, 6):
-            print("".join(lines[:]))
+            print("".join(lines[105:108]))
         if position == (6, 4):
-            print("".join(lines[:]))
+            print("".join(lines[109:112]))
         if position == (6, 6):
-            print("".join(lines[:]))
+            print("".join(lines[113:118]))
         if position == (6, 8):
-            print("".join(lines[:]))
+            print("".join(lines[119:125]))
         if position == (8, 4):
-            print("".join(lines[:]))
-        if position == (9, 2):
-            print("".join(lines[:]))
-        if position == (9, 3):
-            print("".join(lines[:]))
+            print("".join(lines[126:130]))
+        if position == (9, 2) or (9, 3):
+            print("".join(lines[131:136]))
 
 
 def display_choices(position):
@@ -334,7 +336,8 @@ def transport(stations, line, character):
         print("That is not a station. Try again.")
     with open("transit.json") as transit:
         station = json.load(transit)
-        character["position"] = ast.literal_eval(station[line[destination]])
+        if validate_move("board", character, ast.literal_eval(station[line[destination]])):
+            character["position"] = ast.literal_eval(station[line[destination]])
 
 
 

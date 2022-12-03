@@ -16,6 +16,10 @@ GAME START
 
 PROLOGUE
     Time has gone very wrong in the city of Vancouver.
+    You have been sent here to face the monsters that have been unleashed upon the city.
+    You are to defeat the lords that preside over central Vancouver, UBC and Downtown.
+    I trust that you will find whoever is behind this, and bring them to justice.
+                                                                                - Good Luck.
 
 YOU HAVE DIED
     - As you come into this world, something else is also born. You begin your life, and it begins a journey towards you.
@@ -77,5 +81,55 @@ YOU HAVE DIED
         ... Maybe you should be careful of Dragons ...
                                                         ... Maybe ...
 
+(3, 0) UBC
+    Welcome to UBC! The University of British Columbia.
 
+(3, 2) BROADWAY
+    This is Granville street and Broadway. Downtown is to the north of here.
 
+(3, 3) BROADWAY
+    Here you will find the Vancouver General Hospital along with Toys R Us (which btw, has never left).
+
+(3, 4) BROADWAY
+    This is Cambie Street and Broeadway. Now you can take the road that goes north straight to Downtown,
+    or you can take the Skytrain there.
+
+(3, 6) BROADWAY
+    Welcome to the gateway to the rest of Vancouver! Commercial street and Broadway.
+    Here you can take the 99B line to UBC or the Skytrain to Downtown.
+
+(4, 6) VICTORIA DIVERSION
+    This is where Victoria Drive transitions into Commercial Street.
+    Nearby is a church where my friend goes to: St, Joseph's Parish. (He goes to the Burnaby campus though)
+
+(5, 6) VICTORIA DRIVE
+    Welcome to the street that has a McDonald's, London Drugs, Tim Hortons and Starbucks
+    all in close proximity to each other!
+
+(6, 4) OAKRIDGE 41ST
+    Oakridge had it all (mainly a LEGO store) until they had to make a new one.
+    This place is under construction... but why are there trees popping out of it?
+
+(6, 6) NANAIMO AND 48TH AVENUE
+    This is where my church is. Corpus Christi. It means Body of Christ.
+    I remember the old school. A new one was built in place of the old.
+    I remember the last piece of it standing: the front wall, the entrance.
+    How the hand prints of the students were painted on it.
+
+(6, 8) JOYCE COLLINGWOOD
+    Welcome to Joyce Collingwood! There's lots of Filipinos here.
+    In fact there are lots of them anywhere.
+    St. Mary's Parish is located here. This church is not really related to me or anyone I know.
+    I just wanted to complete the Holy Family; because you know...
+        ... it's gonna be Christmas!!!!!!!!!!
+
+(8, 4) MARINE DRIVE
+    Welcome to Marine Drive where there is a cinema.
+    ... The cinema is not working because ...
+                                          ... someone took all the screens ...
+
+(9, 2)/(9, 3) SEA ISLAND
+    Welcome to Sea Island!
+        Located here is YVR airport.
+            Vancouver is just through the Canada line.
+                I hope you packed everything...
