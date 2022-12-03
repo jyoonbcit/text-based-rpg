@@ -20,6 +20,17 @@ def encounter_enemy():
     pass
 
 
+def enemy_turn(character, enemy):
+    if character["defense"] > enemy["attack"]:
+        print(f"You have taken 0 damage from {enemy['name']}")
+        return 0
+    else:
+        print(f"You have taken {character['defense'] - enemy['attack']} damage from {enemy['name']}.\n"
+              f"You have {character['health']} HP.")
+        return character["defense"] - enemy["attack"]
+
+
+
 def battle_options(character, enemy):
     options = ["Attack", "Skill", "Run"]
     print("Make your decision:")
