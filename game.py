@@ -371,46 +371,41 @@ def get_user_choice(choices):
     return choices[choice]
 
 
-def move(character):
+def move(character, board):
     """
+    Move character one tile towards a specified direction.
 
     :param character:
     :return:
     """
-    direction = input("Move by entering W, A, S, or D")
+    direction = input("Move by entering W, A, S, or D: ")
     x_position, y_position = character["position"]
-    if direction == "W".lower and validate_move(character, "W"):
+    if direction == "w" and validate_move(character, "W", board):
         character["position"] = (x_position, y_position + 1)
         is_encounter, enemy = battle.encounter_enemy(character, character["position"])
         if is_encounter and enemy is not None:
             battle.engage_battle(character, enemy)
-    else:
-        print("Invalid move.")
-    # x += 1
-    if direction == "A".lower and validate_move(character, "A"):
+    # y -= 1
+    elif direction == "a" and validate_move(character, "A", board):
         character["position"] = (x_position - 1, y_position)
         is_encounter, enemy = battle.encounter_enemy(character, character["position"])
         if is_encounter and enemy is not None:
             battle.engage_battle(character, enemy)
-    else:
-        print("Invalid move.")
-        # y -= 1
-    if direction == "S".lower and validate_move(character, "S"):
+    # x -= 1
+    elif direction == "s" and validate_move(character, "S", board):
         character["position"] = (x_position, y_position - 1)
         is_encounter, enemy = battle.encounter_enemy(character, character["position"])
         if is_encounter and enemy is not None:
             battle.engage_battle(character, enemy)
-    else:
-        print("Invalid move.")
-    # x -= 1
-    if direction == "D".lower and validate_move(character, "D"):
+    # y += 1
+    elif direction == "d" and validate_move(character, "D", board):
         character["position"] = (x_position + 1, y_position)
         is_encounter, enemy = battle.encounter_enemy(character, character["position"])
         if is_encounter and enemy is not None:
             battle.engage_battle(character, enemy)
+    # x += 1
     else:
-        print("Invalid move.")
-    # y += 1
+        print("Invalid move.\n")
 
 
 def start_game(): # called from main
