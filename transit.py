@@ -15,7 +15,28 @@ def do_you_want_a_ride():
     decisions = {choice: name for choice, name in enumerate(choices, 1)}
     for choice, name in enumerate(choices, 1):
         print(choice, name)
-    return decisions
+    decision = input("Do you want a ride?")
+    while decision not in decisions:
+        print("Invalid input. Try again")
+        decision = input("Do you want a ride?")
+    return decisions[decision]
+
+
+def which_line(character):
+    all_lines = {"Expo line": [(1, 5), (1, 4), (2, 5), (3, 6), (6, 8)],
+                 "Canada line": [(1, 5), (1, 4), (3, 4), (6, 4), (8, 4), (9, 3)],
+                 "R4 Bus Route": [(3, 0), (6, 4), (6, 8)],
+                 "99B line": [(3, 0), (3, 4)],
+                 "Seabus": [(1, 5), (0, 7)]}
+    lines_available = list(filter(lambda element: character["position"] in element[1], all_lines.items()))
+    decisions = {choice: name for choice, name in enumerate(lines_available, 1)}
+    for choice, name in enumerate(lines_available, 1):
+        print(choice, name)
+    decision = input("Which line do you want to take?")
+    while decision not in decisions:
+        print("That is not in the the transit system. Try again.")
+        decision = input("Which line do you want to take?")
+    return decisions[decision]
 
 
 def display_transit(line):
@@ -82,6 +103,7 @@ def transit_available(character):
 
 def main():
     test_character = game_2.make_character("Beta Tester")
+    print(test_character["position"])
 
 
 if __name__ == '__main__':
