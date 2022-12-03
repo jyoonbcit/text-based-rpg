@@ -192,6 +192,9 @@ def calculate_exp(character, enemy):
 
 
 def main():
+    """
+    Runs the program.
+    """
     test_character = game_2.make_character("Beta Tester")
     test_enemy = make_enemy("Beta Tester Killer", 999, 999, 999, 999)
     engage_battle(test_character, test_enemy)
