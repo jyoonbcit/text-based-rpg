@@ -67,6 +67,16 @@ def encounter_enemy(character, location):
 
 
 def enemy_turn(character, enemy):
+    """
+    Determine the damage a specified character will take from a specified enemy.
+
+    :param character: dictionary
+    :param enemy: dictionary
+    :precondition: character must be a dictionary containing the fields of a character dictionary
+    :precondition: enemy must be a dictionary containing the fields of an enemy dictionary
+    :postcondition: character["health"] is reduced or remains the same
+    :return: none
+    """
     if character["defense"] > enemy["attack"]:
         print(f"You have taken 0 damage from {enemy['name']}.")
     else:
