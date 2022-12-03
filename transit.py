@@ -64,7 +64,17 @@ def ride_transit(line, character):
         transport(display_transit("Seabus"), "Seabus", character)
 
 
+def transit_available(character):
+    transit = [(0, 7), (1, 5), (1, 4), (2, 5), (3, 0), (3, 4), (3, 6), (6, 4), (6, 8), (8, 4), (9, 3)]
+    if character["position"] in transit:
+        print("Transit is available")
+        return True
+    else:
+        return False
+
+
 def main():
+    test_character = game_2.make_character("Beta Tester")
 
 
 if __name__ == '__main__':

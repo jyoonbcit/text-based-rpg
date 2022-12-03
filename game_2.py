@@ -15,6 +15,7 @@ A01322277
 
 import random
 import battle_2
+import transit
 
 
 START = (9, 2)
@@ -59,11 +60,21 @@ def make_board(rows, columns):
 
 
 def display_board(character):
+    """
+
+    :param character:
+    :return:
+    """
     # placeholder display
     print(character["position"])
 
 
 def pick_spells(character):
+    """
+
+    :param character:
+    :return:
+    """
     # name: [target, damage, cost]
     if character["level"] == 5:
         spells_dict = {"Burn": {"target": "enemy", "strength": 25, "cost": 10},
@@ -85,6 +96,11 @@ def pick_spells(character):
 
 
 def make_character(name):
+    """
+
+    :param name:
+    :return:
+    """
     # on character creation
     character = {"name": name,
                  "level": 1,
@@ -103,6 +119,11 @@ def make_character(name):
 
 
 def exp_to_level_up(character):
+    """
+
+    :param character:
+    :return:
+    """
     # detect character level, detects exp needed to level up
     # returns an integer representing exp needed to level up
     if character["level"] == 1:
@@ -119,6 +140,11 @@ def exp_to_level_up(character):
 
 
 def level_up(character):
+    """
+
+    :param character:
+    :return:
+    """
     # plays whenever character levels up
     # instead of printing "has levelled up", can do ASCII art
     character["level"] += 1
@@ -131,6 +157,13 @@ def level_up(character):
 
 
 def validate_move(character, direction, board):
+    """
+
+    :param character:
+    :param direction:
+    :param board:
+    :return:
+    """
     # checks out what's in next position
     x_position, y_position = character["position"]
     if direction == "W":
@@ -151,6 +184,11 @@ def validate_move(character, direction, board):
 
 
 def display_dialogue(position):
+    """
+
+    :param position:
+    :return:
+    """
     with open("dialogue.txt", encoding='utf-8') as file_object:
         lines = file_object.readlines()
         # bunch of if statements for each location
