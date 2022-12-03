@@ -24,12 +24,11 @@ def display_transit(line):
     :param line:
     :return:
     """
-    stations = {}
     with open("transit.json") as file_object:
         lines = json.load(file_object)
+        stations = {station_number: name for station_number, name in enumerate(lines[line])}
         for station_number, name in enumerate(lines[line]):
             print(station_number, name)
-            stations[station_number] = name
     return stations
 
 
