@@ -37,8 +37,6 @@ HOSPITAL = ("St Paul's Hospital", "Vancouver General Hospital", "Tim Horton's")
 MAGIC = ("London Drugs", "Starbucks")
 
 
-
-
 # do we need a make_board if we're using a static map?
 def display_title():
     """
@@ -77,9 +75,9 @@ def make_board(rows, columns):
     return board
 
 
-
 def display_board(character):
     # dynamically displays a board depending on character["position"]
+    pass
 
 
 def pick_spells(character):
@@ -134,9 +132,9 @@ def exp_to_level_up(character):
 def level_up(character):
     # plays whenever character levels up
     # instead of printing "has levelled up", can do ASCII art
-    print(character["name"], "has leveled up!")
-    # these are the stats that go up
     character["level"] += 1
+    print(f"You've levelled up! You are now level {character['level']}.")
+    # these are the stats that go up
     # these stats reset back to 0 or default for level
     character["current_exp"] = 0
     character["exp_needed"] = exp_to_level_up(character)
