@@ -4,12 +4,13 @@ A01324170
 """
 
 
-def make_enemy(name):
+def make_enemy(name, exp_value):
     enemy = {"name": name,
              "health": 100,
              "attack": 1,
              "defense": 1,
-             "speed": 2}
+             "speed": 2,
+             "exp_value": exp_value}
     return enemy
 
 
@@ -36,7 +37,12 @@ def battle_options(character, enemy):
         else:
             enemy["health"] -= character["spells"][spell_choice][1]
     elif choice == "2":
-        pass
+        if enemy["attack"] - character["defense"] < 0:
+            pass
+        else:
+            character["health"] -= enemy["attack"] - character["defense"]
+            print(f"You have taken {enemy['attack'] - character['defense']} damage!")
+            print(f"You now have {character['health']} HP.")
     elif choice == "3":
         return
 
