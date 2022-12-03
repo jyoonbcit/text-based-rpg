@@ -141,7 +141,7 @@ def level_up(character):
     return character
 
 
-def validate_move(character, direction):
+def validate_move(character, direction, board):
     # checks out what's in next position
     x_position, y_position = character["position"]
     if direction == "W":
@@ -150,15 +150,14 @@ def validate_move(character, direction):
         new_position = (x_position - 1, y_position)
     elif direction == "S":
         new_position = (x_position, y_position - 1)
-    elif direction == "D":
-        new_position = (x_position + 1, y_position)
     else:
-        new_position = direction
+        new_position = (x_position + 1, y_position)
 
     # if the next position is out of bounds, return False
-    if (new_position in WATER) or\
-            (new_position in UBC and character["level"] < 2) or\
-            (new_position in DOWNTOWN and character["level"] < 3):
+    if new_position in WATER or\
+            new_position in UBC and character["level"] < 2 or\
+            new_position in DOWNTOWN and character["level"] < 3 or \
+            new_position not in board:
         return False
     # else return True
     else:
