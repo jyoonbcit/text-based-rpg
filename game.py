@@ -89,7 +89,7 @@ def pick_spells(character):
                        "Heal": {"target": "player", "strength": 15, "cost": 10}}
         for option_num, spell in enumerate(spells_dict):
             print(f"{option_num}: {spell}")
-        selection = int(input("Select a spell: "))
+        selection = int(input("Select a spell to learn: "))
         if selection == 0:
             chosen_spell = "Burn"
         elif selection == 1:
@@ -127,6 +127,9 @@ def exp_to_level_up(character):
     if character["level"] == 2:
         exp_needed = 200 - character["current_exp"]
         return exp_needed
+    # placeholder
+    if character["level"] > 2:
+        return 999999
 
 
 def level_up(character):
