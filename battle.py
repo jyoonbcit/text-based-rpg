@@ -2,7 +2,10 @@
 Elijah Fabon
 A01324170
 """
+import random
+
 import game
+import json
 
 
 def make_enemy(name, health, attack, defense, exp_value, speed=1):
@@ -16,8 +19,24 @@ def make_enemy(name, health, attack, defense, exp_value, speed=1):
     return enemy
 
 
-def encounter_enemy():
-    pass
+def encounter_enemy(character, location):
+    # if location not in game.START and location not in game.WATER and location not in game.OAKRIDGE and \
+    #         location not in game.UBC and location not in game.DOWNTOWN and location not in game.BOSS and \
+    #         location not in game.CHURCH and location not in game.HEALTH and location not in game.HOSPITAL and \
+    #         location not in game.MAGIC:
+    if location not in game.LOCATIONS:
+        enemy = make_enemy(random.choice(["Bandit", "Wolf", "Demon"]),
+                           # health
+                           character["level"] * random.randint(1, 3),
+                           # attack
+                           character["level"] * random.randint(25, 100),
+                           # defense
+                           character["level"] * random.randint(15, 25),
+                           # exp given
+                           character["level"] * 25
+                           )
+    elif location in game.BOSS:
+        pass
 
 
 def enemy_turn(character, enemy):
