@@ -140,7 +140,7 @@ def level_up(character):
     return character
 
 
-def validate_move(board, character, direction):
+def validate_move(character, direction):
     # checks out what's in next position
     x_position, y_position = character["position"]
     if direction == "W":
@@ -380,25 +380,25 @@ def move(character):
     x_position, y_position = character["position"]
     if direction == "W".lower:
         # what is board here?
-        if validate_move(board, character, "W"):
+        if validate_move(character, "W"):
             character["position"] = (x_position, y_position + 1)
         else:
             print("Invalid move.")
         # x += 1
     if direction == "A".lower:
-        if validate_move(board, character, "A"):
+        if validate_move(character, "A"):
             character["position"] = (x_position - 1, y_position)
         else:
             print("Invalid move.")
         # y -= 1
     if direction == "S".lower:
-        if validate_move(board, character, "S"):
+        if validate_move(character, "S"):
             character["position"] = (x_position, y_position - 1)
         else:
             print("Invalid move.")
         # x -= 1
     if direction == "D".lower:
-        if validate_move(board, character, "D"):
+        if validate_move(character, "D"):
             character["position"] = (x_position + 1, y_position)
         else:
             print("Invalid move.")
