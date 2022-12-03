@@ -148,9 +148,14 @@ def exp_to_level_up(character):
 
 def level_up(character):
     """
+    Increase a specified character's level.
 
-    :param character:
-    :return:
+    :param character: dictionary
+    :precondition: character must be a dictionary containing the fields of a character dictionary
+    :postcondition: character["level"] increases by 1
+    :postcondition: character["current_exp"] becomes 0
+    :postcondition: character["exp_needed"] increases or remains the same
+    :return: a dictionary
     """
     # plays whenever character levels up
     # instead of printing "has levelled up", can do ASCII art
