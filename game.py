@@ -37,7 +37,6 @@ HOSPITAL = ("St Paul's Hospital", "Vancouver General Hospital", "Tim Horton's")
 MAGIC = ("London Drugs", "Starbucks")
 
 
-# do we need a make_board if we're using a static map?
 def display_title():
     """
     Display title.
@@ -214,6 +213,7 @@ def display_choices(position):
             choices[location_number] = name
     return choices
 
+
 def check_for_challenges():
     """
 
@@ -224,7 +224,6 @@ def check_for_challenges():
         return True
     else:
         return False
-
 
 
 def describe_current_location(character):
@@ -320,7 +319,6 @@ def display_transit(line):
     return stations
 
 
-
 def transport(stations, line, character):
     """
 
@@ -336,7 +334,6 @@ def transport(stations, line, character):
         station = json.load(transit)
         if validate_move("board", character, ast.literal_eval(station[line[destination]])):
             character["position"] = ast.literal_eval(station[line[destination]])
-
 
 
 def ride_transit(line, character):
@@ -440,7 +437,6 @@ def start_game(): # called from main
             execute_glow_up_protocol()
             achieved_goal = check_if_goal_attained(board, character)
     # Print end of game stuff like congratulations or sorry you died
-
 
 
 def main():
