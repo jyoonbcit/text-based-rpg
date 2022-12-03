@@ -335,8 +335,7 @@ def transport(stations, line, character):
         print("That is not a station. Try again.")
     with open("transit.json") as transit:
         station = json.load(transit)
-        if validate_move("board", character, ast.literal_eval(station[line[destination]])):
-            character["position"] = ast.literal_eval(station[line[destination]])
+        character["position"] = ast.literal_eval(station[line[destination]])
 
 
 def ride_transit(line, character):
