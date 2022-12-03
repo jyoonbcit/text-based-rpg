@@ -93,8 +93,8 @@ def make_character(name):
                  "position": START,
                  "health": 100,
                  "mana": 100,
-                 "attack": 1,
-                 "defense": 1,
+                 "attack": 15,
+                 "defense": 10,
                  "speed": 2,
                  "spells": dict(),
                  "win": False}
