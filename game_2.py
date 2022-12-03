@@ -71,9 +71,12 @@ def display_board(character):
 
 def pick_spells(character):
     """
+    Gives the specified character a spell depending on their level and choice.
 
-    :param character:
-    :return:
+    :param character: dictionary
+    :precondition: character must be a dictionary containing the fields of a character dictionary
+    :postcondition: character["spells"] changes or remains the same
+    :return: dictionary
     """
     # name: [target, damage, cost]
     if character["level"] == 5:
@@ -97,9 +100,11 @@ def pick_spells(character):
 
 def make_character(name):
     """
+    Create a character from scratch.
 
-    :param name:
-    :return:
+    :param name: string
+    :postcondition: create a character with a specified name
+    :return: dictionary
     """
     # on character creation
     character = {"name": name,
@@ -114,15 +119,17 @@ def make_character(name):
                  "speed": 2,
                  "spells": dict(),
                  "win": False}
-    pick_spells(character)
     return character
 
 
 def exp_to_level_up(character):
     """
+    Calculate the experience a specified character
 
-    :param character:
-    :return:
+    :param character: dictionary
+    :precondition: character must be a dictionary containing the fields of a character dictionary
+    :postcondition: character is unchanged
+    :return: integer
     """
     # detect character level, detects exp needed to level up
     # returns an integer representing exp needed to level up
@@ -141,9 +148,14 @@ def exp_to_level_up(character):
 
 def level_up(character):
     """
+    Increase a specified character's level.
 
-    :param character:
-    :return:
+    :param character: dictionary
+    :precondition: character must be a dictionary containing the fields of a character dictionary
+    :postcondition: character["level"] increases by 1
+    :postcondition: character["current_exp"] becomes 0
+    :postcondition: character["exp_needed"] increases or remains the same
+    :return: dictionary
     """
     # plays whenever character levels up
     # instead of printing "has levelled up", can do ASCII art
@@ -158,11 +170,16 @@ def level_up(character):
 
 def validate_move(character, direction, board):
     """
+    Validate whether a move is possible or not.
 
-    :param character:
-    :param direction:
-    :param board:
-    :return:
+    :param character: dictionary
+    :param direction: string
+    :param board: list of tuples
+    :precondition: character must be a dictionary containing the fields of a character dictionary
+    :postcondition: character is unchanged
+    :postcondition: direction is unchanged
+    :postcondition: board is unchanged
+    :return: False if move is not valid, else True
     """
     # checks out what's in next position
     x_position, y_position = character["position"]
@@ -174,7 +191,6 @@ def validate_move(character, direction, board):
         new_position = (x_position, y_position + 1)
     else:
         new_position = (x_position + 1, y_position)
-
     # if the next position is out of bounds, return False
     if new_position not in board:
         return False
@@ -185,9 +201,11 @@ def validate_move(character, direction, board):
 
 def display_dialogue(position):
     """
+    Display a specific dialogue depending on a specified position.
 
-    :param position:
-    :return:
+    :param position: tuple
+    :postcondition: print a specific message based on position
+    :return: none
     """
     with open("dialogue.txt", encoding='utf-8') as file_object:
         lines = file_object.readlines()
