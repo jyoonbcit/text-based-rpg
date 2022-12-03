@@ -124,9 +124,12 @@ def make_character(name):
 
 def exp_to_level_up(character):
     """
+    Calculate the experience a specified character
 
-    :param character:
-    :return:
+    :param character: dictionary
+    :precondition: character must be a dictionary containing the fields of a character dictionary
+    :postcondition: character is unchanged
+    :return: integer
     """
     # detect character level, detects exp needed to level up
     # returns an integer representing exp needed to level up
