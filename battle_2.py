@@ -60,7 +60,7 @@ def encounter_enemy(character, location):
         print(f"You have encountered {enemy['name']}!")
         return True, enemy
     elif location in game_2.BOSS:
-        enemy = make_enemy("Boss", 0, 100, 100, 0, speed=3, is_boss=True)
+        enemy = make_enemy("Boss", 1000, 100, 100, 0, speed=3, is_boss=True)
         return True, enemy
     else:
         return False, None
