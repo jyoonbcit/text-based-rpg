@@ -30,7 +30,6 @@ def enemy_turn(character, enemy):
         return character["defense"] - enemy["attack"]
 
 
-
 def battle_options(character, enemy):
     options = ["Attack", "Skill", "Run"]
     print("Make your decision:")
@@ -80,7 +79,9 @@ def calculate_exp(character, enemy):
 
 
 def main():
-    engage_battle()
+    test_character = game.make_character("Beta Tester")
+    test_enemy = make_enemy("Beta Tester Killer", 999, 999, 999, 999)
+    engage_battle(test_character, test_enemy)
 
 
 if __name__ == "__main__":
