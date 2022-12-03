@@ -170,11 +170,16 @@ def level_up(character):
 
 def validate_move(character, direction, board):
     """
+    Validate whether a move is possible or not.
 
-    :param character:
-    :param direction:
-    :param board:
-    :return:
+    :param character: dictionary
+    :param direction: string
+    :param board: list of tuples
+    :precondition: character must be a dictionary containing the fields of a character dictionary
+    :postcondition: character is unchanged
+    :postcondition: direction is unchanged
+    :postcondition: board is unchanged
+    :return: False if move is not valid, else True
     """
     # checks out what's in next position
     x_position, y_position = character["position"]
@@ -186,7 +191,6 @@ def validate_move(character, direction, board):
         new_position = (x_position, y_position + 1)
     else:
         new_position = (x_position + 1, y_position)
-
     # if the next position is out of bounds, return False
     if new_position not in board:
         return False
