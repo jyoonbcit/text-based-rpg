@@ -47,7 +47,7 @@ def encounter_enemy(character, location):
         # encounter a boss instead
         return True
     else:
-        return False
+        return False, None
 
 
 def enemy_turn(character, enemy):
