@@ -248,10 +248,13 @@ def display_dialogue(position):
 
 def describe_current_location(character, board):
     """
+    Display details about a specified character's position.
 
-    :param character:
-    :param board:
-    :return:
+    :param character: dictionary
+    :param board: list of tuples
+    :precondition: character must be a dictionary containing the fields of a character dictionary
+    :postcondition: character is unchanged
+    :return: none
     """
     print(f"You are at {str(character['position'])}")
     if character["position"] in board:
@@ -262,9 +265,11 @@ def move(character, board):
     """
     Move character one tile towards a specified direction.
 
-    :param character:
-    :param board:
-    :return:
+    :param character: dictionary
+    :param board: list of tuples
+    :precondition: character must be a dictionary containing the fields of a character dictionary
+    :postcondition: character["position"] is changed or remains the same
+    :return: none
     """
     direction = input("Move by entering W, A, S, or D: ")
     x_position, y_position = character["position"]
