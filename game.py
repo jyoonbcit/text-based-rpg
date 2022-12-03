@@ -96,7 +96,7 @@ def pick_spells(character):
             chosen_spell = "Reckless"
         else:
             chosen_spell = "Heal"
-        print(f"You have selected {chosen_spell}")
+        print(f"You have learnt {chosen_spell}")
         character["spells"][chosen_spell] = spells_dict[chosen_spell]
     return character
 

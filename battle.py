@@ -26,18 +26,25 @@ def battle_options(character, enemy):
     if choice != "0" or choice != "1" or choice != "2" or choice != "3":
         print("Invalid choice!")
     elif choice == "0":
-        enemy["health"]
+        enemy["health"] -= character["attack"]
     elif choice == "1":
-        pass
+        print(f"{character['spells']}")
+        spell_choice = input("Type the spell's name: ")
+        if character["spells"][spell_choice][0] == "player":
+            character["health"] += character["spells"][spell_choice][1]
+            print(f"You have {character['health']} HP remaining.")
+        else:
+            enemy["health"] -= character["spells"][spell_choice][1]
     elif choice == "2":
         pass
     elif choice == "3":
-        pass
+        return
 
 
 def engage_battle(character, enemy):
     print(f"You have entered combat with {enemy['name']}")
-    battle_options()
+    while character["health"] > 0 and enemy["health"] > 0:
+        battle_options()
 
 
 def main():
