@@ -83,10 +83,10 @@ def display_board(character):
 def pick_spells(character):
     # name: [target, damage, cost]
     if character["level"] == 1:
-        spells_dict = {"Burn": ["enemy", 10, 10],
+        spells_dict = {"Burn": {"target": "enemy", "strength": 10, "cost": 10},
                        # reckless is RNG damage, should clarify with print statement or description
-                       "Reckless": ["enemy", random.randint(0, 20), 12],
-                       "Heal": ["player", 15, 10]}
+                       "Reckless": {"target": "enemy", "strength": random.randint(0, 20), "cost": 12},
+                       "Heal": {"target": "player", "strength": 15, "cost": 10}}
         for option_num, spell in enumerate(spells_dict):
             print(f"{option_num}: {spell}")
         selection = int(input("Select a spell: "))
