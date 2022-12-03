@@ -20,11 +20,17 @@ def make_enemy(name, health, attack, defense, exp_value, speed=1):
 
 
 def encounter_enemy(character, location):
+    """
+    Determine if a specified character has encountered an enemy at a specified location.
+
+    :param character:
+    :param location:
+    """
     # if location not in game.START and location not in game.WATER and location not in game.OAKRIDGE and \
     #         location not in game.UBC and location not in game.DOWNTOWN and location not in game.BOSS and \
     #         location not in game.CHURCH and location not in game.HEALTH and location not in game.HOSPITAL and \
     #         location not in game.MAGIC:
-    if location not in game.LOCATIONS:
+    if location in game.LOCATIONS:
         enemy = make_enemy(random.choice(["Bandit", "Wolf", "Demon"]),
                            # health
                            character["level"] * random.randint(1, 3),
@@ -35,8 +41,13 @@ def encounter_enemy(character, location):
                            # exp given
                            character["level"] * 25
                            )
+        print(f"You have encountered {enemy['name']}!")
+        return True, enemy
     elif location in game.BOSS:
-        pass
+        # encounter a boss instead
+        return True
+    else:
+        return False
 
 
 def enemy_turn(character, enemy):
