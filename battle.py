@@ -33,13 +33,13 @@ def encounter_enemy(character, location):
     if location in game.LOCATIONS:
         enemy = make_enemy(random.choice(["Bandit", "Wolf", "Demon"]),
                            # health
-                           character["level"] * random.randint(1, 3),
+                           character["level"] * random.randint(10, 25),
                            # attack
-                           character["level"] * random.randint(25, 100),
-                           # defense
                            character["level"] * random.randint(15, 25),
+                           # defense
+                           character["level"] * random.randint(0, 20),
                            # exp given
-                           character["level"] * 25
+                           character["level"] * 10
                            )
         print(f"You have encountered {enemy['name']}!")
         return True, enemy

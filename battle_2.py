@@ -10,6 +10,23 @@ import json
 
 
 def make_enemy(name, health, attack, defense, exp_value, speed=1, is_boss=False):
+    """
+    Create an enemy in the form of a dictionary.
+
+    :param name: string
+    :param health: integer
+    :param attack: integer
+    :param defense: integer
+    :param exp_value: integer
+    :param speed: integer
+    :param is_boss: boolean
+    :precondition: attack is greater than or equal to 0
+    :precondition: defense is greater than or equal to 0
+    :precondition: exp_value is greater than or equal to 0
+    :precondition: speed is greater than or equal to 1
+    :postcondition: enemy dictionary is created with specified keys and values
+    :return: dictionary that contains keys and values representing fields of an enemy entity
+    """
     enemy = {"name": name,
              "health": health,
              "attack": attack,
@@ -25,23 +42,20 @@ def encounter_enemy(character, location):
     """
     Determine if a specified character has encountered an enemy at a specified location.
 
-    :param character:
-    :param location:
+    :param character: dictionary
+    :param location: tuple
+    :precondition: character must be a dictionary containing the fields of a character dictionary
     """
-    # if location not in game.START and location not in game.WATER and location not in game.OAKRIDGE and \
-    #         location not in game.UBC and location not in game.DOWNTOWN and location not in game.BOSS and \
-    #         location not in game.CHURCH and location not in game.HEALTH and location not in game.HOSPITAL and \
-    #         location not in game.MAGIC:
     if location not in game_2.BOSS:
         enemy = make_enemy(random.choice(["Bandit", "Wolf", "Demon"]),
                            # health
-                           character["level"] * random.randint(1, 3),
+                           character["level"] * random.randint(10, 25),
                            # attack
-                           character["level"] * random.randint(25, 100),
-                           # defense
                            character["level"] * random.randint(15, 25),
+                           # defense
+                           character["level"] * random.randint(0, 20),
                            # exp given
-                           character["level"] * 25
+                           character["level"] * 10
                            )
         print(f"You have encountered {enemy['name']}!")
         return True, enemy
