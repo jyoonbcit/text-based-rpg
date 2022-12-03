@@ -43,10 +43,10 @@ def make_board(rows, columns):
     """
     Create all possible X and Y positions on a grid.
 
-    :param rows:
-    :param columns:
-    :postcondition:
-    :return:
+    :param rows: integer
+    :param columns: integer
+    :postcondition: create a 2D list of tuples with specified rows and specified columns
+    :return: list of tuples
 
     >>> make_board(3, 3)
     [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]
