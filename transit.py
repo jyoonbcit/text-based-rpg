@@ -61,7 +61,11 @@ def ride_transit(line, character):
     elif line in ("UBC Exchange Station (99B Line)", "Broadway City Hall Station"):
         transport(display_transit("99B_line"), "99B_line", character)
     else:
-        transport(display_transit("Seabus"), "Seabus", character
+        transport(display_transit("Seabus"), "Seabus", character)
 
 
+def main():
 
+
+if __name__ == '__main__':
+    main()
