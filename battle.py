@@ -3,19 +3,19 @@ Elijah Fabon
 A01324170
 """
 import random
-
 import game
 import json
 
 
-def make_enemy(name, health, attack, defense, exp_value, speed=1):
+def make_enemy(name, health, attack, defense, exp_value, speed=1, is_boss=False):
     enemy = {"name": name,
              "health": health,
              "attack": attack,
              "defense": defense,
              "speed": speed,
              "exp_value": exp_value,
-             "run": False}
+             "run": False,
+             "is_boss": is_boss}
     return enemy
 
 
@@ -44,8 +44,8 @@ def encounter_enemy(character, location):
         print(f"You have encountered {enemy['name']}!")
         return True, enemy
     elif location in game.BOSS:
-        # encounter a boss instead
-        return True
+        enemy = make_enemy("Boss", 1000, 100, 100, 0, speed=3, is_boss=True)
+        return True, enemy
     else:
         return False, None
 
@@ -83,7 +83,7 @@ def battle_options(character, enemy):
             print(f"You have dealt {before - enemy['health']} damage!\n"
                   f"The enemy has {enemy['health']} HP.")
     else:
-        enemy["health"] = "run"
+        enemy["run"] = True
 
 
 def engage_battle(character, enemy):
@@ -91,7 +91,7 @@ def engage_battle(character, enemy):
     while character["health"] > 0 and enemy["health"] > 0 and enemy["run"] is False:
         if character["speed"] >= enemy["speed"]:
             battle_options(character, enemy)
-            if enemy["health"] > 0:
+            if enemy["health"] > 0 and enemy["run"] is False:
                 enemy_turn(character, enemy)
         else:
             enemy_turn(character, enemy)
@@ -100,7 +100,9 @@ def engage_battle(character, enemy):
     if character["health"] <= 0:
         print("You have died. Teleporting to hospital...")
         # implement teleport to hospital
-    elif enemy["health"] < 0:
+    elif enemy["health"] <= 0:
+        if enemy["is_boss"]:
+            character["win"] = True
         print(f"You have defeated {enemy['name']}.")
         calculate_exp(character, enemy)
     elif enemy["run"] is True:
