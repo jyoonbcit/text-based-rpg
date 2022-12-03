@@ -19,6 +19,7 @@ import random
 import json
 import ast
 import time
+import battle
 
 
 START = (9, 2)
@@ -378,32 +379,38 @@ def move(character):
     """
     direction = input("Move by entering W, A, S, or D")
     x_position, y_position = character["position"]
-    if direction == "W".lower:
-        # what is board here?
-        if validate_move(character, "W"):
-            character["position"] = (x_position, y_position + 1)
-        else:
-            print("Invalid move.")
-        # x += 1
-    if direction == "A".lower:
-        if validate_move(character, "A"):
-            character["position"] = (x_position - 1, y_position)
-        else:
-            print("Invalid move.")
+    if direction == "W".lower and validate_move(character, "W"):
+        character["position"] = (x_position, y_position + 1)
+        is_encounter, enemy = battle.encounter_enemy(character, character["position"])
+        if is_encounter and enemy is not None:
+            battle.engage_battle(character, enemy)
+    else:
+        print("Invalid move.")
+    # x += 1
+    if direction == "A".lower and validate_move(character, "A"):
+        character["position"] = (x_position - 1, y_position)
+        is_encounter, enemy = battle.encounter_enemy(character, character["position"])
+        if is_encounter and enemy is not None:
+            battle.engage_battle(character, enemy)
+    else:
+        print("Invalid move.")
         # y -= 1
-    if direction == "S".lower:
-        if validate_move(character, "S"):
-            character["position"] = (x_position, y_position - 1)
-        else:
-            print("Invalid move.")
-        # x -= 1
-    if direction == "D".lower:
-        if validate_move(character, "D"):
-            character["position"] = (x_position + 1, y_position)
-        else:
-            print("Invalid move.")
-        # y += 1
-    # doesn't need return I think
+    if direction == "S".lower and validate_move(character, "S"):
+        character["position"] = (x_position, y_position - 1)
+        is_encounter, enemy = battle.encounter_enemy(character, character["position"])
+        if is_encounter and enemy is not None:
+            battle.engage_battle(character, enemy)
+    else:
+        print("Invalid move.")
+    # x -= 1
+    if direction == "D".lower and validate_move(character, "D"):
+        character["position"] = (x_position + 1, y_position)
+        is_encounter, enemy = battle.encounter_enemy(character, character["position"])
+        if is_encounter and enemy is not None:
+            battle.engage_battle(character, enemy)
+    else:
+        print("Invalid move.")
+    # y += 1
 
 
 def start_game(): # called from main
