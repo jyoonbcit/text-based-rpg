@@ -108,12 +108,14 @@ def exp_to_level_up(character):
     if character["level"] == 1:
         exp_needed = 100 - character["current_exp"]
         return exp_needed
-    if character["level"] == 2:
+    if character["level"] == 2 or character["level"] == 3:
         exp_needed = 200 - character["current_exp"]
         return exp_needed
-    # placeholder
-    if character["level"] > 2:
-        return 999999
+    if character["level"] == 4 or character["level"] == 5:
+        exp_needed = 250 - character["current_exp"]
+        return exp_needed
+    if character["level"] > 5:
+        return 300 - character["current_exp"]
 
 
 def level_up(character):
