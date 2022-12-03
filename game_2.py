@@ -307,8 +307,7 @@ def move(character, board):
 
 def start_game():
     """
-
-
+    Starts the game.
     """
     board = make_board(10, 10)
     display_title()
