@@ -276,7 +276,7 @@ def move(character, board):
     direction = input("Move by entering W, A, S, or D: ")
     x_position, y_position = character["position"]
     if direction == "w" and validate_move(character, "W", board):
-        character["position"] = (x_position, y_position - 1)
+        character["position"] = (x_position, y_position + 1)
         print(f"You are at {character['position']}\n")
         is_encounter, enemy = battle_2.encounter_enemy(character, character["position"])
         if is_encounter and enemy is not None:
@@ -290,7 +290,7 @@ def move(character, board):
             battle_2.engage_battle(character, enemy)
     # x -= 1
     elif direction == "s" and validate_move(character, "S", board):
-        character["position"] = (x_position, y_position + 1)
+        character["position"] = (x_position, y_position - 1)
         print(f"You are at {character['position']}\n")
         is_encounter, enemy = battle_2.encounter_enemy(character, character["position"])
         if is_encounter and enemy is not None:
