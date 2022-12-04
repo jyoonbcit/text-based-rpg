@@ -281,12 +281,11 @@ def display_dialogue(position):
             print("")
 
 
-def describe_current_location(character, board):
+def describe_current_location(character):
     """
     Display details about a specified character's position.
 
     :param character: dictionary
-    :param board: list of tuples
     :precondition: character must be a dictionary containing the fields of a character dictionary
     :postcondition: character is unchanged
     :return: none
@@ -311,30 +310,18 @@ def move(character, board):
     if direction == "w" and validate_move(character, "W", board):
         character["position"] = (x_position, y_position + 1)
         print(f"You are at {character['position']}\n")
-        is_encounter, enemy = battle.encounter_enemy(character, character["position"])
-        if is_encounter and enemy is not None:
-            battle.engage_battle(character, enemy)
     # y -= 1
     elif direction == "a" and validate_move(character, "A", board):
         character["position"] = (x_position - 1, y_position)
         print(f"You are at {character['position']}\n")
-        is_encounter, enemy = battle.encounter_enemy(character, character["position"])
-        if is_encounter and enemy is not None:
-            battle.engage_battle(character, enemy)
     # x -= 1
     elif direction == "s" and validate_move(character, "S", board):
         character["position"] = (x_position, y_position - 1)
         print(f"You are at {character['position']}\n")
-        is_encounter, enemy = battle.encounter_enemy(character, character["position"])
-        if is_encounter and enemy is not None:
-            battle.engage_battle(character, enemy)
     # y += 1
     elif direction == "d" and validate_move(character, "D", board):
         character["position"] = (x_position + 1, y_position)
         print(f"You are at {character['position']}\n")
-        is_encounter, enemy = battle.encounter_enemy(character, character["position"])
-        if is_encounter and enemy is not None:
-            battle.engage_battle(character, enemy)
     # x += 1
     else:
         print("Invalid move.\n")
@@ -350,22 +337,27 @@ def start_game():
     display_prologue()
     while not character["win"]:
         # Tell the user where they are
-        describe_current_location(character, board)
+        describe_current_location(character)
         display_board(character)
         print(f"{character['name']}:"
               f" {character['health']}/{character['max_health']} HP"
               f" | {character['mana']}/{character['max_mana']} MP"
               f" | {character['exp_needed']} EXP to next level\n")
+        is_encounter, enemy = battle.encounter_enemy(character, character["position"])
+        if is_encounter and enemy is not None:
+            battle.engage_battle(character, enemy)
         if transit.transit_available(character):
             if transit.you_want_a_ride():
                 transit.ride_transit(character)
-                describe_current_location(character, board)
+                describe_current_location(character)
                 display_board(character)
                 print(f"{character['name']}:"
                       f" {character['health']}/{character['max_health']} HP"
                       f" | {character['mana']}/{character['max_mana']} MP"
                       f" | {character['exp_needed']} EXP to next level\n")
-
+                is_encounter, enemy = battle.encounter_enemy(character, character["position"])
+                if is_encounter and enemy is not None:
+                    battle.engage_battle(character, enemy)
         # Asks user for move input, validates input, moves. If invalid, tells user.
         move(character, board)
     print("Winner winner chicken dinner!")
