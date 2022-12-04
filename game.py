@@ -66,9 +66,9 @@ def make_board(rows, columns):
 
 def display_board(character):
     """
+    Print a map of the board
 
-    :param character:
-    :return:
+    :param character: a dictionary of stats (we want the position)
     """
     # placeholder display
     sud = ""
@@ -225,6 +225,8 @@ def validate_move(character, direction, board):
     # if the next position is out of bounds, return False
     if new_position not in board:
         return False
+    elif new_position in WATER:
+        return False
     # else return True
     else:
         return True
@@ -357,8 +359,13 @@ def start_game():
         if transit.transit_available(character):
             if transit.you_want_a_ride():
                 transit.ride_transit(character)
-                display_board(character)
                 describe_current_location(character, board)
+                display_board(character)
+                print(f"{character['name']}:"
+                      f" {character['health']}/{character['max_health']} HP"
+                      f" | {character['mana']}/{character['max_mana']} MP"
+                      f" | {character['exp_needed']} EXP to next level\n")
+
         # Asks user for move input, validates input, moves. If invalid, tells user.
         move(character, board)
     print("Winner winner chicken dinner!")

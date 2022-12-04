@@ -40,5 +40,5 @@ Replace this line with any comments you want to share
 | Range function               | game.py: 75     |
 | Functions from itertools     |                 |
 | Enumerate function           | transit.py: 20  |
-| Filter or map function       |                 |
+| Filter or map function       | transit.py: 47  |
 | Random module                |                 |

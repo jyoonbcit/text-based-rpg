@@ -24,7 +24,10 @@ def you_want_a_ride():
     decision = int(input("ENTER number:"))
     while decision not in decisions.keys():
         print("Invalid input. Try again")
-        decision = int(input("Do you want a ride?"))
+        print("Do you want a ride?")
+        for choice, name in enumerate(choices, 1):
+            print(choice, name)
+        decision = int(input("ENTER number:"))
     choice = decisions[decision]
     if choice == "Yes":
         return True

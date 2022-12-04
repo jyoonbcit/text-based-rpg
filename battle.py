@@ -40,6 +40,31 @@ def make_enemy(name, health, attack, defense, exp_value, speed=1, is_boss=False)
     return enemy
 
 
+def engage_boss():
+    """
+    Return True if you say yes, False if you say no.
+
+    :return: True if yes, False if no
+    """
+    choices = ["Yes", "No"]
+    decisions = {choice: name for choice, name in enumerate(choices, 1)}
+    print("You sense a strong presence. Do you want to engage the boss of this area?")
+    for choice, name in enumerate(choices, 1):
+        print(choice, name)
+    decision = int(input("ENTER number:"))
+    while decision not in decisions.keys():
+        print("Invalid input. Try again")
+        print("You sense a strong presence. Do you want to engage the boss of this area?")
+        for choice, name in enumerate(choices, 1):
+            print(choice, name)
+        decision = int(input("ENTER number:"))
+    choice = decisions[decision]
+    if choice == "Yes":
+        return True
+    else:
+        return False
+
+
 def encounter_enemy(character, location):
     """
     Determine if a specified character has encountered an enemy at a specified location.
