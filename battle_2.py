@@ -212,7 +212,7 @@ def calculate_exp(character, enemy):
         game_2.level_up(character)
     else:
         character["current_exp"] += enemy["exp_value"]
-        print(f"Gained {enemy['exp_value']} EXP.")
+        print(f"Gained {enemy['exp_value']} EXP.\n")
         character["exp_needed"] = game_2.exp_to_level_up(character)
 
 
