@@ -38,7 +38,7 @@ Replace this line with any comments you want to share
 | Repetition for or while loop | game.py: 75, 352                |
 | Membership operator (in)     | game.py: 81, 226, 228           |
 | Range function               | game.py: 75                     |
-| Functions from itertools     |                                 |
+| Functions from itertools     | game.py: 60                     |
 | Enumerate function           | battle.py: 134 / transit.py: 20 |
 | Filter or map function       | transit.py: 47                  |
 | Random module                | battle.py: 79, 81, 83           |
