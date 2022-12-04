@@ -63,6 +63,15 @@ def display_transit(line):
 
     :param line: the name of a transit line as a string
     :return: a dictionary of stations with numbers as their keys
+    >>> display_transit("Canada_line")
+    1 Waterfront (Canada Line)
+    2 Vancouver City Centre Station
+    3 Broadway City Hall Station (Canada line)
+    4 Oakridge 41st Station (Canada line)
+    5 Marine Drive Station
+    6 YVR Airport Station
+    {1: 'Waterfront (Canada Line)', 2: 'Vancouver City Centre Station', 3: 'Broadway City Hall Station (Canada line)',
+    4: 'Oakridge 41st Station (Canada line)', 5: 'Marine Drive Station', 6: 'YVR Airport Station'}
     """
     with open("transit.json") as file_object:
         lines = json.load(file_object)
@@ -117,6 +126,11 @@ def transit_available(character):
 
     :param character: a dictionary of stats (we want the position)
     :return: True if there is transit. False if not.
+    >>> test_character = game.make_character("Beta Tester")
+    >>> test_character["position"] = (1, 5)
+    >>> transit_available(test_character)
+    Transit is available
+    True
     """
     transit = [(0, 7), (1, 5), (1, 4), (2, 5), (3, 0), (3, 4), (3, 6), (6, 4), (6, 8), (8, 4), (9, 3)]
     if character["position"] in transit:
