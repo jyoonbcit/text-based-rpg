@@ -324,6 +324,23 @@ def move(character, board):
         print("Invalid move.\n")
 
 
+def current_situation(character):
+    """
+    Explain the current situation of specified character.
+
+    :param character: dictionary
+    :precondition: character must be a dictionary containing the fields of a character dictionary
+    :postcondition: character is unchanged
+    :return: none
+    """
+    describe_current_location(character)
+    display_board(character)
+    print(f"{character['name']}:"
+          f" {character['health']}/{character['max_health']} HP"
+          f" | {character['mana']}/{character['max_mana']} MP"
+          f" | {character['exp_needed']} EXP to next level\n")
+
+
 def start_game():
     """
     Starts the game.
@@ -334,24 +351,14 @@ def start_game():
     display_prologue()
     while not character["win"]:
         # Tell the user where they are
-        describe_current_location(character)
-        display_board(character)
-        print(f"{character['name']}:"
-              f" {character['health']}/{character['max_health']} HP"
-              f" | {character['mana']}/{character['max_mana']} MP"
-              f" | {character['exp_needed']} EXP to next level\n")
+        current_situation(character)
         is_encounter, enemy = battle.encounter_enemy(character, character["position"])
         if is_encounter and enemy is not None:
             battle.engage_battle(character, enemy)
         if transit.transit_available(character):
             if transit.you_want_a_ride():
                 transit.ride_transit(character)
-                describe_current_location(character)
-                display_board(character)
-                print(f"{character['name']}:"
-                      f" {character['health']}/{character['max_health']} HP"
-                      f" | {character['mana']}/{character['max_mana']} MP"
-                      f" | {character['exp_needed']} EXP to next level\n")
+                current_situation(character)
                 is_encounter, enemy = battle.encounter_enemy(character, character["position"])
                 if is_encounter and enemy is not None:
                     battle.engage_battle(character, enemy)
