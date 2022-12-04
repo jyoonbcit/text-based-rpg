@@ -53,7 +53,7 @@ def encounter_enemy(character, location):
                            # attack
                            character["level"] * random.randint(15, 25),
                            # defense
-                           character["level"] * random.randint(0, 20),
+                           character["level"] * random.randint(0, 5),
                            # exp given
                            character["level"] * 10
                            )
@@ -117,7 +117,9 @@ def battle_options(character, enemy):
     elif choice == "1":
         print(f"{character['spells']}")
         spell_choice = input("Type the spell's name: ")
-        if character["mana"] - character["spells"][spell_choice]["cost"] < 0:
+        if spell_choice not in character['spells']:
+            print("No such spell exists!\nOh no, you've been caught off-guard!")
+        elif character["mana"] - character["spells"][spell_choice]["cost"] < 0:
             print("Not enough mana!")
         elif character["spells"][spell_choice]["target"] == "player":
             character["mana"] -= character["spells"][spell_choice]["cost"]
@@ -129,7 +131,7 @@ def battle_options(character, enemy):
             enemy["health"] -= character["spells"][spell_choice]["strength"]
             print(f"You have dealt {before - enemy['health']} damage!\n"
                   f"The enemy has {enemy['health']} HP.")
-    else:
+    elif choice == "2":
         enemy["run"] = True
 
 
@@ -160,8 +162,9 @@ def engage_battle(character, enemy):
             if character["health"] > 0:
                 battle_options(character, enemy)
     if character["health"] <= 0:
-        print("You have died. Teleporting to hospital...")
-        # implement teleport to hospital
+        print("You have died. Teleporting to start...")
+        character["position"] = game_2.START
+        character["health"] = character["max_health"]
     elif enemy["health"] <= 0:
         if enemy["is_boss"]:
             character["win"] = True

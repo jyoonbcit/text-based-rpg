@@ -113,6 +113,7 @@ def make_character(name):
                  "exp_needed": 100,
                  "position": START,
                  "health": 100,
+                 "max_health": 100,
                  "mana": 100,
                  "attack": 10,
                  "defense": 10,
@@ -307,8 +308,7 @@ def move(character, board):
 
 def start_game():
     """
-
-
+    Starts the game.
     """
     board = make_board(10, 10)
     display_title()
