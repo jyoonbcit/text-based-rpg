@@ -81,7 +81,7 @@ def display_board(character):
             elif current_position in WATER:
                 sud += "(~)"
             else:
-                sud += "[.]"
+                sud += "[^]"
     print(sud)
 
 
