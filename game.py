@@ -173,11 +173,24 @@ def level_up(character):
     :postcondition: character["level"] increases by 1
     :postcondition: character["current_exp"] becomes 0
     :postcondition: character["exp_needed"] increases or remains the same
+    :postcondition: character["max_health"] increases
+    :postcondition: character["health"] increases
+    :postcondition: character["attack"] increases
+    :postcondition: character["defense"] increases
+    :postcondition: character["max_mana"] increases
+    :postcondition: character["mana"] increases
     :return: dictionary
     """
     # plays whenever character levels up
     # instead of printing "has levelled up", can do ASCII art
     character["level"] += 1
+    character["max_health"] += 10
+    character["health"] = character["max_health"]
+    character["attack"] += 10
+    character["defense"] += 3
+    character["max_mana"] += 10
+    character["mana"] = character["max_mana"]
+
     print(f"You've levelled up! You are now level {character['level']}.\n")
     # these are the stats that go up
     # these stats reset back to 0 or default for level
