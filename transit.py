@@ -7,7 +7,7 @@ A01322277
 
 import json
 import ast
-import game_2
+import game
 
 
 def you_want_a_ride():
@@ -130,7 +130,7 @@ def main():
     """
     Drive the program.
     """
-    test_character = game_2.make_character("Beta Tester")
+    test_character = game.make_character("Beta Tester")
     test_character["position"] = (1, 5)
     print(test_character["position"])
     if transit_available(test_character):
