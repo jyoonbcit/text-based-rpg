@@ -213,15 +213,15 @@ def validate_move(character, direction, board):
     :return: False if move is not valid, else True
     """
     # checks out what's in next position
-    x_position, y_position = character["position"]
+    y_position, x_position = character["position"]
     if direction == "W":
-        new_position = (x_position, y_position - 1)
+        new_position = (y_position - 1, x_position)
     elif direction == "A":
-        new_position = (x_position - 1, y_position)
+        new_position = (y_position, x_position - 1)
     elif direction == "S":
-        new_position = (x_position, y_position + 1)
+        new_position = (y_position + 1, x_position)
     else:
-        new_position = (x_position + 1, y_position)
+        new_position = (y_position, x_position + 1)
     # if the next position is out of bounds, return False
     if new_position not in board:
         return False
