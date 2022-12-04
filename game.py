@@ -349,6 +349,7 @@ def start_game():
     while not character["win"]:
         # Tell the user where they are
         describe_current_location(character, board)
+        display_board(character)
         print(f"{character['name']}:"
               f" {character['health']}/{character['max_health']} HP"
               f" | {character['mana']}/{character['max_mana']} MP"
@@ -356,6 +357,7 @@ def start_game():
         if transit.transit_available(character):
             if transit.you_want_a_ride():
                 transit.ride_transit(character)
+                display_board(character)
                 describe_current_location(character, board)
         # Asks user for move input, validates input, moves. If invalid, tells user.
         move(character, board)
