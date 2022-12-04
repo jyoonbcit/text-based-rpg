@@ -115,6 +115,7 @@ def make_character(name):
                  "health": 100,
                  "max_health": 100,
                  "mana": 100,
+                 "max_mana": 100,
                  "attack": 10,
                  "defense": 10,
                  "speed": 2,
@@ -161,7 +162,7 @@ def level_up(character):
     # plays whenever character levels up
     # instead of printing "has levelled up", can do ASCII art
     character["level"] += 1
-    print(f"You've levelled up! You are now level {character['level']}.")
+    print(f"You've levelled up! You are now level {character['level']}.\n")
     # these are the stats that go up
     # these stats reset back to 0 or default for level
     character["current_exp"] = 0
@@ -319,6 +320,10 @@ def start_game():
         describe_current_location(character, board)
         # Asks user for move input, validates input, moves. If invalid, tells user.
         move(character, board)
+        print(f"{character['name']}:"
+              f" {character['health']}/{character['max_health']} HP"
+              f" | {character['mana']}/{character['max_mana']} MP"
+              f" | {character['exp_needed']} EXP to next level\n")
     print("Winner winner chicken dinner!")
 
 
