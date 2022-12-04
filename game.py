@@ -21,6 +21,9 @@ import transit
 START = (9, 2)
 LOCATIONS = ((0, 7), (1, 4), (1, 5), (2, 5), (2, 3), (3, 2), (3, 3), (3, 4), (4, 6), (5, 6), (6, 4), (6, 6), (6, 8),
              (8, 4), (9, 2), (9, 3))
+WATER = ((0, 0), (0, 1), (0, 2), (0, 3), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 6), (1, 7), (1, 8), (1, 9),
+         (2, 0), (2, 1), (2, 2), (5, 0), (6, 0), (6, 1), (7, 0), (7, 1), (7, 2), (8, 0), (8, 3), (9, 0), (9, 4), (9, 5),
+         (9, 6), (9, 7), (9, 8), (9, 9))
 BOSS = ((1, 5), (2, 5), (3, 0), (6, 4))
 
 
@@ -68,7 +71,18 @@ def display_board(character):
     :return:
     """
     # placeholder display
-    print(character["position"])
+    sud = ""
+    for row in range(0, 10):
+        sud += "" if row == 0 else "\n"
+        for column in range(0, 10):
+            current_position = (row, column)
+            if current_position == character["position"]:
+                sud += "[#]"
+            elif current_position in WATER:
+                sud += "(~)"
+            else:
+                sud += "[.]"
+    print(sud)
 
 
 def pick_spells(character):
@@ -246,10 +260,10 @@ def display_dialogue(position):
             print("".join(lines[118:125]))
         if position == (8, 4):
             print("".join(lines[125:130]))
-        if position == (9, 2) or (9, 3):
+        if position == (9, 2) or position == (9, 3):
             print("".join(lines[130:136]))
         else:
-            return
+            print("")
 
 
 def describe_current_location(character, board):
