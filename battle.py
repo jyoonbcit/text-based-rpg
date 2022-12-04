@@ -25,6 +25,9 @@ def make_enemy(name, health, attack, defense, exp_value, speed=1, is_boss=False)
     :precondition: speed is greater than or equal to 1
     :postcondition: enemy dictionary is created with specified keys and values
     :return: dictionary that contains keys and values representing fields of an enemy entity
+
+    >>> make_enemy("Test", 1, 1, 1, 1)
+    {'name': 'Test', 'health': 1, 'attack': 1, 'defense': 1, 'speed': 1, 'exp_value': 1, 'run': False, 'is_boss': False}
     """
     enemy = {"name": name,
              "health": health,
