@@ -10,16 +10,21 @@ import ast
 import game_2
 
 
-def do_you_want_a_ride():
+def you_want_a_ride():
     choices = ["Yes", "No"]
     decisions = {choice: name for choice, name in enumerate(choices, 1)}
+    print("Do you want a ride?")
     for choice, name in enumerate(choices, 1):
         print(choice, name)
-    decision = input("Do you want a ride?")
-    while decision not in decisions:
+    decision = int(input("ENTER number:"))
+    while decision not in decisions.keys():
         print("Invalid input. Try again")
-        decision = input("Do you want a ride?")
-    return decisions[decision]
+        decision = int(input("Do you want a ride?"))
+    choice = decisions[decision]
+    if choice == "Yes":
+        return True
+    else:
+        return False
 
 
 def which_line(character):
@@ -29,13 +34,15 @@ def which_line(character):
                  "99B line": [(3, 0), (3, 4)],
                  "Seabus": [(1, 5), (0, 7)]}
     lines_available = list(filter(lambda element: character["position"] in element[1], all_lines.items()))
-    decisions = {choice: name for choice, name in enumerate(lines_available, 1)}
+    decisions = {choice: name[0] for choice, name in enumerate(lines_available, 1)}
+    location = character["position"]
+    print(f"Which line do you want to take? You are at {location}")
     for choice, name in enumerate(lines_available, 1):
-        print(choice, name)
-    decision = input("Which line do you want to take?")
-    while decision not in decisions:
+        print(choice, name[0])
+    decision = int(input("ENTER number:"))
+    while decision not in decisions.keys():
         print("That is not in the the transit system. Try again.")
-        decision = input("Which line do you want to take?")
+        decision = int(input("ENTER number:"))
     return decisions[decision]
 
 
@@ -47,8 +54,8 @@ def display_transit(line):
     """
     with open("transit.json") as file_object:
         lines = json.load(file_object)
-        stations = {station_number: name for station_number, name in enumerate(lines[line])}
-        for station_number, name in enumerate(lines[line]):
+        stations = {station_number: name for station_number, name in enumerate(lines[line], 1)}
+        for station_number, name in enumerate(lines[line], 1):
             print(station_number, name)
     return stations
 
@@ -61,32 +68,31 @@ def transport(stations, line, character):
     :param character:
     :return:
     """
-    destination = input("Where do you want to go?")
-    while destination not in stations:
+    destination = int(input("ENTER number:"))
+    while destination not in stations.keys():
         print("That is not a station. Try again.")
-        destination = input("Where do you want to go?")
+        destination = int(input("Where do you want to go?"))
     with open("transit.json") as transit:
         station = json.load(transit)
-        character["position"] = ast.literal_eval(station[line[destination]])
+        transit_line = station[line]
+        character["position"] = ast.literal_eval(transit_line[stations[destination]])
 
 
-def ride_transit(line, character):
+def ride_transit(character):
     """
 
-    :param line:
     :param character:
-    :return:
     """
-    if line in ("Waterfront (Expo line)", "Granville Station", "Science World/Chinatown Station",
-                "Commercial/Broadway Station", "Joyce Collingwood Station (Expo line)"):
+    line = which_line(character)
+    location = character["position"]
+    print(f"Which line do you want to take? You are at {location}")
+    if line == "Expo line":
         transport(display_transit("Expo_line"), "Expo_line", character)
-    elif line in ("Waterfront (Canada Line)", "Vancouver City Centre Station",
-                  "Broadway City Hall Station (Canada line)", "Oakridge 41st Station (Canada line)",
-                  "Marine Drive Station", "YVR Airport Station"):
+    elif line == "Canada line":
         transport(display_transit("Canada_line"), "Canada_line", character)
-    elif line in ("UBC Exchange Station (R4)", "Oakridge 41st Station (R4)", "Joyce Collingwood Station (R4)"):
+    elif line == "R4 Bus Route":
         transport(display_transit("R4_bus_route"), "R4_bus_route", character)
-    elif line in ("UBC Exchange Station (99B Line)", "Broadway City Hall Station"):
+    elif line == "99B line":
         transport(display_transit("99B_line"), "99B_line", character)
     else:
         transport(display_transit("Seabus"), "Seabus", character)
@@ -103,6 +109,13 @@ def transit_available(character):
 
 def main():
     test_character = game_2.make_character("Beta Tester")
+    test_character["position"] = (1, 5)
+    print(test_character["position"])
+    if transit_available(test_character):
+        if you_want_a_ride():
+            ride_transit(test_character)
+        else:
+            print("You don't want a ride")
     print(test_character["position"])
 
 
