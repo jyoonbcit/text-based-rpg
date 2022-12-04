@@ -29,16 +29,16 @@ jyoonbcit
 Replace this line with any comments you want to share
 
 ## Required elements
-| Element                      | Line            |
-|------------------------------|-----------------|
-| Tuple                        | game.py: 21     |
-| List                         | transit.py: 135 |
-| Dict/List Comprehension      | transit.py: 20  | 
-| Selection using if-statement |                 |
-| Repetition for or while loop | game.py: 75     |
-| Membership operator (in)     | game.py: 81     |
-| Range function               | game.py: 75     |
-| Functions from itertools     |                 |
-| Enumerate function           | transit.py: 20  |
-| Filter or map function       | transit.py: 47  |
-| Random module                |                 |
+| Element                      | Line                            |
+|------------------------------|---------------------------------|
+| Tuple                        | game.py: 21                     |
+| List                         | game.py: 60 / transit.py: 135   |
+| Dict/List Comprehension      | transit.py: 20                  | 
+| Selection using if-statement | battle.py: 139, 147, 164        |
+| Repetition for or while loop | game.py: 75, 352                |
+| Membership operator (in)     | game.py: 81, 226, 228           |
+| Range function               | game.py: 75                     |
+| Functions from itertools     |                                 |
+| Enumerate function           | battle.py: 134 / transit.py: 20 |
+| Filter or map function       | transit.py: 47                  |
+| Random module                | battle.py: 79, 81, 83           |
