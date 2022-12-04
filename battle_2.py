@@ -135,6 +135,27 @@ def battle_options(character, enemy):
         enemy["run"] = True
 
 
+def death_message():
+    """
+
+    :return:
+    """
+    message = random.randint(1, 3)
+    with open("dialogue.txt", encoding='utf-8') as file_object:
+        lines = file_object.readlines()
+        if message == 1:
+            print("".join(lines[24:31]))
+        if message == 2:
+            print("".join(lines[32:37]))
+        if message == 3:
+            print("".join(lines[38:45]))
+    choice = input("Press ENTER to continue \n or type \"quit\" to quit")
+    if choice != "QUIT".lower:
+        print("Teleporting to start...")
+    else:
+        return #quit game
+
+
 def engage_battle(character, enemy):
     """
     Display to the player what options they can take in combat.
@@ -162,7 +183,7 @@ def engage_battle(character, enemy):
             if character["health"] > 0:
                 battle_options(character, enemy)
     if character["health"] <= 0:
-        print("You have died. Teleporting to start...")
+        death_message() #quit game if player wants
         character["position"] = game_2.START
         character["health"] = character["max_health"]
     elif enemy["health"] <= 0:

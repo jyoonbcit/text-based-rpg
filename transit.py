@@ -11,6 +11,10 @@ import game_2
 
 
 def you_want_a_ride():
+    """
+
+    :return:
+    """
     choices = ["Yes", "No"]
     decisions = {choice: name for choice, name in enumerate(choices, 1)}
     print("Do you want a ride?")
@@ -99,6 +103,11 @@ def ride_transit(character):
 
 
 def transit_available(character):
+    """
+
+    :param character:
+    :return:
+    """
     transit = [(0, 7), (1, 5), (1, 4), (2, 5), (3, 0), (3, 4), (3, 6), (6, 4), (6, 8), (8, 4), (9, 3)]
     if character["position"] in transit:
         print("Transit is available")
