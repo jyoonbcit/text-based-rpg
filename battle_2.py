@@ -162,8 +162,9 @@ def engage_battle(character, enemy):
             if character["health"] > 0:
                 battle_options(character, enemy)
     if character["health"] <= 0:
-        print("You have died. Teleporting to hospital...")
-        # implement teleport to hospital
+        print("You have died. Teleporting to start...")
+        character["position"] = game_2.START
+        character["health"] = character["max_health"]
     elif enemy["health"] <= 0:
         if enemy["is_boss"]:
             character["win"] = True
