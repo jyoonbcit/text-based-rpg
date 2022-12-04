@@ -309,13 +309,13 @@ def move(character, board):
     y_position, x_position = character["position"]
     print(y_position, x_position)
     if direction == "w" and validate_move(character, "W", board):
-        character["position"] = (y_position + 1, x_position)
+        character["position"] = (y_position - 1, x_position)
         print(f"You are at {character['position']}\n")
     elif direction == "a" and validate_move(character, "A", board):
         character["position"] = (y_position, x_position - 1)
         print(f"You are at {character['position']}\n")
     elif direction == "s" and validate_move(character, "S", board):
-        character["position"] = (y_position - 1, x_position)
+        character["position"] = (y_position + 1, x_position)
         print(f"You are at {character['position']}\n")
     elif direction == "d" and validate_move(character, "D", board):
         character["position"] = (y_position, x_position + 1)
