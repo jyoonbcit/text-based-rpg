@@ -145,11 +145,11 @@ def death_message():
     with open("dialogue.txt", encoding='utf-8') as file_object:
         lines = file_object.readlines()
         if message == 1:
-            print("".join(lines[24:31]))
+            print("".join(lines[23:31]))
         if message == 2:
-            print("".join(lines[32:37]))
+            print("".join(lines[31:37]))
         if message == 3:
-            print("".join(lines[38:45]))
+            print("".join(lines[37:45]))
     choice = input("Press ENTER to continue \n or type \"quit\" to quit")
     if choice != "QUIT".lower:
         print("Teleporting to start...")

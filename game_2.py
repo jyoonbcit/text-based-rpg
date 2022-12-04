@@ -19,6 +19,8 @@ import transit
 
 
 START = (9, 2)
+LOCATIONS = ((0, 7), (1, 4), (1, 5), (2, 5), (2, 3), (3, 2), (3, 3), (3, 4), (4, 6), (5, 6), (6, 4), (6, 6), (6, 8),
+             (8, 4), (9, 2), (9, 3))
 BOSS = ((1, 5), (2, 5), (3, 0), (6, 4))
 
 
@@ -246,6 +248,8 @@ def display_dialogue(position):
             print("".join(lines[126:130]))
         if position == (9, 2) or (9, 3):
             print("".join(lines[131:136]))
+        else:
+            return
 
 
 def describe_current_location(character, board):
@@ -259,7 +263,7 @@ def describe_current_location(character, board):
     :return: none
     """
     print(f"You are at {str(character['position'])}")
-    if character["position"] in board:
+    if character["position"] in LOCATIONS:
         display_dialogue(character['position'])
 
 
@@ -325,9 +329,7 @@ def start_game():
         if transit.transit_available(character):
             if transit.you_want_a_ride():
                 transit.ride_transit(character)
-            else:
-                # Asks user for move input, validates input, moves. If invalid, tells user.
-                move(character, board)
+                describe_current_location(character, board)
         # Asks user for move input, validates input, moves. If invalid, tells user.
         move(character, board)
     print("Winner winner chicken dinner!")
