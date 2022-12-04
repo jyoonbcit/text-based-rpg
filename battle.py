@@ -82,7 +82,7 @@ def encounter_enemy(character, location):
                            # defense
                            character["level"] * random.randint(0, 5),
                            # exp given
-                           character["level"] * 10
+                           character["level"] * 15
                            )
         print(f"You have encountered {enemy['name']}!")
         return True, enemy
