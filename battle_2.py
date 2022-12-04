@@ -137,6 +137,7 @@ def battle_options(character, enemy):
 
 def death_message():
     """
+    Display a death message
 
     :return:
     """
