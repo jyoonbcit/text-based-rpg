@@ -49,9 +49,9 @@ def encounter_enemy(character, location):
     if location not in game_2.BOSS:
         enemy = make_enemy(random.choice(["Bandit", "Wolf", "Demon"]),
                            # health
-                           character["level"] * random.randint(10, 25),
+                           character["level"] * random.randint(5, 10),
                            # attack
-                           character["level"] * random.randint(15, 25),
+                           character["level"] * random.randint(5, 10),
                            # defense
                            character["level"] * random.randint(0, 5),
                            # exp given
@@ -208,11 +208,12 @@ def calculate_exp(character, enemy):
     :postcondition: character["exp_needed"] is increased or remains the same
     return: none
     """
-    if character["exp_needed"] < enemy["exp_value"]:
-        character["current_exp"] += enemy["exp_value"]
-        character["exp_needed"] -= enemy["exp_value"]
-    else:
+    if character["exp_needed"] <= enemy["exp_value"]:
         game_2.level_up(character)
+    else:
+        character["current_exp"] += enemy["exp_value"]
+        print(f"Gained {enemy['exp_value']} EXP.")
+        character["exp_needed"] = game_2.exp_to_level_up(character)
 
 
 def main():
