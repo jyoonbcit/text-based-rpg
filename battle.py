@@ -136,7 +136,7 @@ def battle_options(character, enemy):
     choice = input()
     if choice != "0" and choice != "1" and choice != "2":
         print(f"{character['name']} does not understand your command!\nOh no, you've been caught off-guard!")
-    elif choice == "0":
+    if choice == "0":
         if character["attack"] - enemy["defense"] >= 0:
             before = enemy["health"]
             enemy["health"] -= character["attack"] - enemy["defense"]
@@ -144,7 +144,7 @@ def battle_options(character, enemy):
                   f"The enemy has {enemy['health']} HP.")
         else:
             print(f"{enemy['name']}'s defense is too high! Try using spells!")
-    elif choice == "1":
+    if choice == "1":
         print(f"{character['spells']}")
         spell_choice = input("Type the spell's name: ")
         if spell_choice not in character['spells']:
@@ -161,7 +161,7 @@ def battle_options(character, enemy):
             enemy["health"] -= character["spells"][spell_choice]["strength"]
             print(f"You have dealt {before - enemy['health']} damage!\n"
                   f"The enemy has {enemy['health']} HP.")
-    elif choice == "2":
+    if choice == "2":
         enemy["run"] = True
 
 
