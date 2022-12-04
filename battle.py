@@ -127,7 +127,7 @@ def battle_options(character, enemy):
             print(f"You have {character['health']} HP and {character['mana']} mana.")
         else:
             before = enemy["health"]
-            character["mana"] - character["spells"][spell_choice]["cost"]
+            character["mana"] -= character["spells"][spell_choice]["cost"]
             enemy["health"] -= character["spells"][spell_choice]["strength"]
             print(f"You have dealt {before - enemy['health']} damage!\n"
                   f"The enemy has {enemy['health']} HP.")
@@ -154,7 +154,7 @@ def death_message():
     if choice != "QUIT".lower:
         print("Teleporting to start...")
     else:
-        return #quit game
+        return  # quit game
 
 
 def engage_battle(character, enemy):
@@ -184,7 +184,7 @@ def engage_battle(character, enemy):
             if character["health"] > 0:
                 battle_options(character, enemy)
     if character["health"] <= 0:
-        death_message() #quit game if player wants
+        death_message()  # quit game if player wants
         character["position"] = game.START
         character["health"] = character["max_health"]
     elif enemy["health"] <= 0:
