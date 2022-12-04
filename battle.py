@@ -6,7 +6,6 @@ A01322277
 """
 import random
 import game
-import json
 
 
 def make_enemy(name, health, attack, defense, exp_value, speed=1, is_boss=False):
