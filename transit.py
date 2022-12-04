@@ -12,8 +12,9 @@ import game_2
 
 def you_want_a_ride():
     """
+    Return True if you say yes, False if you say no.
 
-    :return:
+    :return: True if yes, False if no
     """
     choices = ["Yes", "No"]
     decisions = {choice: name for choice, name in enumerate(choices, 1)}
@@ -32,6 +33,12 @@ def you_want_a_ride():
 
 
 def which_line(character):
+    """
+    Choose which transit line you want to take.
+
+    :param character: a dictionary of stats (we want the position)
+    :return: the name of the line you want to take
+    """
     all_lines = {"Expo line": [(1, 5), (1, 4), (2, 5), (3, 6), (6, 8)],
                  "Canada line": [(1, 5), (1, 4), (3, 4), (6, 4), (8, 4), (9, 3)],
                  "R4 Bus Route": [(3, 0), (6, 4), (6, 8)],
@@ -52,9 +59,10 @@ def which_line(character):
 
 def display_transit(line):
     """
+    Displays stations of a particular line.
 
-    :param line:
-    :return:
+    :param line: the name of a transit line as a string
+    :return: a dictionary of stations with numbers as their keys
     """
     with open("transit.json") as file_object:
         lines = json.load(file_object)
@@ -66,11 +74,11 @@ def display_transit(line):
 
 def transport(stations, line, character):
     """
+    Change the position of the character to the position of the chosen station.
 
-    :param stations:
-    :param line:
-    :param character:
-    :return:
+    :param stations: a dictionary of stations with numbers as their keys (from display_transit)
+    :param line: the name of a transit line as a string
+    :param character: a dictionary of stats (we want the position)
     """
     destination = int(input("ENTER number:"))
     while destination not in stations.keys():
@@ -84,8 +92,9 @@ def transport(stations, line, character):
 
 def ride_transit(character):
     """
+    Call the three previous functions according to the user's choices.
 
-    :param character:
+    :param character: a dictionary of stats (we want the position)
     """
     line = which_line(character)
     location = character["position"]
@@ -104,9 +113,10 @@ def ride_transit(character):
 
 def transit_available(character):
     """
+    Check if there is a transit station.
 
-    :param character:
-    :return:
+    :param character: a dictionary of stats (we want the position)
+    :return: True if there is transit. False if not.
     """
     transit = [(0, 7), (1, 5), (1, 4), (2, 5), (3, 0), (3, 4), (3, 6), (6, 4), (6, 8), (8, 4), (9, 3)]
     if character["position"] in transit:
@@ -117,6 +127,9 @@ def transit_available(character):
 
 
 def main():
+    """
+    Drive the program.
+    """
     test_character = game_2.make_character("Beta Tester")
     test_character["position"] = (1, 5)
     print(test_character["position"])
