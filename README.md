@@ -33,7 +33,7 @@ Replace this line with any comments you want to share
 |------------------------------|---------------------------------|
 | Tuple                        | game.py: 21                     |
 | List                         | game.py: 60 / transit.py: 135   |
-| Dict/List Comprehension      | transit.py: 20                  | 
+| Dict/List Comprehension      | transit.py: 20, 81              | 
 | Selection using if-statement | battle.py: 139, 147, 164        |
 | Repetition for or while loop | game.py: 75, 352                |
 | Membership operator (in)     | game.py: 81, 226, 228           |
