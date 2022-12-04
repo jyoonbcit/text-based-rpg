@@ -16,6 +16,7 @@ A01322277
 import random
 import battle
 import transit
+import itertools
 
 
 START = (9, 2)
@@ -45,22 +46,18 @@ def display_prologue():
         print("".join(lines[16:23]))
 
 
-def make_board(rows, columns):
+def make_board(sides):
     """
-    Create all possible X and Y positions on a grid.
+    Create a square board with specified sides.
 
-    :param rows: integer
-    :param columns: integer
-    :postcondition: create a 2D list of tuples with specified rows and specified columns
+    :param sides: integer
+    :postcondition: create a 2D list of tuples with the same amount of rows and columns
     :return: list of tuples
 
-    >>> make_board(3, 3)
+    >>> make_board(3)
     [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]
     """
-    board = []
-    for position_x in range(rows):
-        for position_y in range(columns):
-            board.append((position_x, position_y))
+    board = (list(itertools.product(range(sides), repeat=2)))
     return board
 
 
@@ -345,7 +342,7 @@ def start_game():
     """
     Starts the game.
     """
-    board = make_board(10, 10)
+    board = make_board(10)
     display_title()
     character = make_character(input("Enter your name: "))
     display_prologue()

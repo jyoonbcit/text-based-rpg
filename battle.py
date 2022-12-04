@@ -73,7 +73,7 @@ def encounter_enemy(character, location):
     :param location: tuple
     :precondition: character must be a dictionary containing the fields of a character dictionary
     """
-    if location not in game.BOSS:
+    if location not in game.BOSS and location not in game.START:
         enemy = make_enemy(random.choice(["Bandit", "Wolf", "Demon"]),
                            # health
                            character["level"] * random.randint(5, 10),
