@@ -30,7 +30,7 @@ def display_title():
     """
     with open("dialogue.txt", encoding='utf-8') as file_object:
         lines = file_object.readlines()
-        print("".join(lines[1:16]))
+        print("".join(lines[0:16]))
 
 
 def display_prologue():
@@ -39,7 +39,7 @@ def display_prologue():
     """
     with open("dialogue.txt", encoding='utf-8') as file_object:
         lines = file_object.readlines()
-        print("".join(lines[17:23]))
+        print("".join(lines[16:23]))
 
 
 def make_board(rows, columns):
@@ -215,39 +215,39 @@ def display_dialogue(position):
         lines = file_object.readlines()
         # bunch of if statements for each location
         if position == (0, 7):
-            print("".join(lines[46:50]))
+            print("".join(lines[45:50]))
         if position == (1, 4):
-            print("".join(lines[51:57]))
+            print("".join(lines[50:57]))
         if position == (1, 5):
-            print("".join(lines[58:63]))
+            print("".join(lines[57:63]))
         if position == (2, 3):
-            print("".join(lines[64:75]))
+            print("".join(lines[63:75]))
         if position == (2, 5):
-            print("".join(lines[76:83]))
+            print("".join(lines[75:83]))
         if position == (3, 0):
-            print("".join(lines[84:86]))
+            print("".join(lines[83:86]))
         if position == (3, 2):
-            print("".join(lines[87:89]))
+            print("".join(lines[86:89]))
         if position == (3, 3):
-            print("".join(lines[90:92]))
+            print("".join(lines[89:92]))
         if position == (3, 4):
-            print("".join(lines[93:96]))
+            print("".join(lines[92:96]))
         if position == (3, 6):
-            print("".join(lines[97:100]))
+            print("".join(lines[96:100]))
         if position == (4, 6):
-            print("".join(lines[101:104]))
+            print("".join(lines[100:104]))
         if position == (5, 6):
-            print("".join(lines[105:108]))
+            print("".join(lines[104:108]))
         if position == (6, 4):
-            print("".join(lines[109:112]))
+            print("".join(lines[108:112]))
         if position == (6, 6):
-            print("".join(lines[113:118]))
+            print("".join(lines[112:118]))
         if position == (6, 8):
-            print("".join(lines[119:125]))
+            print("".join(lines[118:125]))
         if position == (8, 4):
-            print("".join(lines[126:130]))
+            print("".join(lines[125:130]))
         if position == (9, 2) or (9, 3):
-            print("".join(lines[131:136]))
+            print("".join(lines[130:136]))
         else:
             return
 
