@@ -21,8 +21,11 @@ def you_want_a_ride():
     print("Do you want a ride?")
     for choice, name in enumerate(choices, 1):
         print(choice, name)
-    decision = int(input("ENTER number:"))
+    decision = int(input("ENTER number or type \"q\" to quit:"))
     while decision not in decisions.keys():
+        if decision == "q":
+            print("You have quit the game.")
+            quit()
         print("Invalid input. Try again")
         print("Do you want a ride?")
         for choice, name in enumerate(choices, 1):
@@ -53,8 +56,11 @@ def which_line(character):
     print(f"Which line do you want to take? You are at {location}")
     for choice, name in enumerate(lines_available, 1):
         print(choice, name[0])
-    decision = int(input("ENTER number:"))
+    decision = int(input("ENTER number or type \"q\" to quit:"))
     while decision not in decisions.keys():
+        if decision == "q":
+            print("You have quit the game.")
+            quit()
         print("That is not in the the transit system. Try again.")
         decision = int(input("ENTER number:"))
     return decisions[decision]
@@ -92,8 +98,11 @@ def transport(stations, line, character):
     :param line: the name of a transit line as a string
     :param character: a dictionary of stats (we want the position)
     """
-    destination = int(input("ENTER number:"))
+    destination = int(input("ENTER number or type \"q\" to quit:"))
     while destination not in stations.keys():
+        if destination == "q":
+            print("You have quit the game.")
+            quit()
         print("That is not a station. Try again.")
         destination = int(input("Where do you want to go?"))
     with open("transit.json") as transit:

@@ -181,10 +181,11 @@ def death_message():
         if message == 3:
             print("".join(lines[37:45]))
     choice = input("Press ENTER to continue \n or type \"quit\" to quit")
-    if choice != "QUIT".lower:
+    if choice != "quit":
         print("Teleporting to start...")
     else:
-        return  # quit game
+        print("You have quit the game.")
+        quit()
 
 
 def engage_battle(character, enemy):
