@@ -86,6 +86,7 @@ def pick_spells(character):
     """
     # name: [target, damage, cost]
     if character["level"] == 2:
+        print("\nYou can now pick a spell.")
         spells_dict = {"Burn": {"target": "enemy", "strength": 25, "cost": 10},
                        # reckless is RNG damage, should clarify with print statement or description
                        "Reckless": {"target": "enemy", "strength": random.randint(0, 50), "cost": 12},
@@ -172,17 +173,17 @@ def level_up(character):
     :return: dictionary
     """
     # plays whenever character levels up
-    # instead of printing "has levelled up", can do ASCII art
     character["level"] += 1
+    print(f"\nYou have levelled up! You are now level {character['level']}.")
     character["max_health"] += 10
     character["health"] = character["max_health"]
     character["attack"] += 10
     character["defense"] += 3
     character["max_mana"] += 10
     character["mana"] = character["max_mana"]
+    pick_spells(character)
 
     print(f"You've levelled up! You are now level {character['level']}.\n")
-    # these are the stats that go up
     # these stats reset back to 0 or default for level
     character["current_exp"] = 0
     character["exp_needed"] = exp_to_level_up(character)
@@ -305,6 +306,7 @@ def move(character, board):
     :return: none
     """
     print("Hit q to quit")
+    current_situation(character)
     direction = input("Move by entering W, A, S, or D: ")
     y_position, x_position = character["position"]
     if direction == "w" and validate_move(character, "W", board):
