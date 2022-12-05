@@ -17,11 +17,11 @@ def you_want_a_ride():
     :return: True if yes, False if no
     """
     choices = ["Yes", "No"]
-    decisions = {choice: name for choice, name in enumerate(choices, 1)}
+    decisions = {str(choice): name for choice, name in enumerate(choices, 1)}
     print("Do you want a ride?")
     for choice, name in enumerate(choices, 1):
         print(choice, name)
-    decision = int(input("ENTER number or type \"q\" to quit:"))
+    decision = input("ENTER number or type \"q\" to quit:")
     while decision not in decisions.keys():
         if decision == "q":
             print("You have quit the game.")
@@ -30,7 +30,7 @@ def you_want_a_ride():
         print("Do you want a ride?")
         for choice, name in enumerate(choices, 1):
             print(choice, name)
-        decision = int(input("ENTER number:"))
+        decision = input("ENTER number or type \"q\" to quit:")
     choice = decisions[decision]
     if choice == "Yes":
         return True
@@ -51,18 +51,18 @@ def which_line(character):
                  "99B line": [(3, 0), (3, 4)],
                  "Seabus": [(1, 5), (0, 7)]}
     lines_available = list(filter(lambda element: character["position"] in element[1], all_lines.items()))
-    decisions = {choice: name[0] for choice, name in enumerate(lines_available, 1)}
+    decisions = {str(choice): name[0] for choice, name in enumerate(lines_available, 1)}
     location = character["position"]
     print(f"Which line do you want to take? You are at {location}")
     for choice, name in enumerate(lines_available, 1):
         print(choice, name[0])
-    decision = int(input("ENTER number or type \"q\" to quit:"))
+    decision = input("ENTER number or type \"q\" to quit:")
     while decision not in decisions.keys():
         if decision == "q":
             print("You have quit the game.")
             quit()
         print("That is not in the the transit system. Try again.")
-        decision = int(input("ENTER number:"))
+        decision = input("ENTER number or type \"q\" to quit:")
     return decisions[decision]
 
 
@@ -84,7 +84,7 @@ def display_transit(line):
     """
     with open("transit.json") as file_object:
         lines = json.load(file_object)
-        stations = {station_number: name for station_number, name in enumerate(lines[line], 1)}
+        stations = {str(station_number): name for station_number, name in enumerate(lines[line], 1)}
         for station_number, name in enumerate(lines[line], 1):
             print(station_number, name)
     return stations
@@ -98,13 +98,13 @@ def transport(stations, line, character):
     :param line: the name of a transit line as a string
     :param character: a dictionary of stats (we want the position)
     """
-    destination = int(input("ENTER number or type \"q\" to quit:"))
+    destination = input("ENTER number or type \"q\" to quit:")
     while destination not in stations.keys():
         if destination == "q":
             print("You have quit the game.")
             quit()
         print("That is not a station. Try again.")
-        destination = int(input("Where do you want to go?"))
+        destination = input("Where do you want to go?")
     with open("transit.json") as transit:
         station = json.load(transit)
         transit_line = station[line]
