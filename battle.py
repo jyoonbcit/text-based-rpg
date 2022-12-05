@@ -108,7 +108,7 @@ def enemy_turn(character, enemy):
     if character["defense"] > enemy["attack"]:
         print(f"You have taken 0 damage from {enemy['name']}.")
     else:
-        character["health"] -= enemy["attack"]
+        character["health"] -= enemy["attack"] - character["defense"]
         print(f"You have taken {enemy['attack'] - character['defense']} damage from {enemy['name']}.\n"
               f"You have {character['health']} HP and {character['mana']} mana.\n"
               f"{character['name']}:"
