@@ -104,8 +104,8 @@ def pick_spells(character):
         character["spells"][chosen_spell] = spells_dict[chosen_spell]
     if character["level"] == 3:
         print("\nYou can now pick a spell.")
-        spells_dict = {"Incinerate": {"target": "enemy", "strength": 100, "cost": 25},
-                       "Reckless 2.0": {"target": "enemy", "strength": random.randint(0, 300), "cost": 40}}
+        spells_dict = {"Incinerate": {"target": "enemy", "strength": 40, "cost": 25},
+                       "Reckless 2.0": {"target": "enemy", "strength": random.randint(0, 80), "cost": 40}}
         for option_num, spell in enumerate(spells_dict):
             print(f"{option_num}: {spell}")
         selection = int(input("Select a spell to learn: "))
