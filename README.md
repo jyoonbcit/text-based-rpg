@@ -32,13 +32,13 @@ Replace this line with any comments you want to share
 | Element                      | Line                                   |
 |------------------------------|----------------------------------------|
 | Tuple                        | game.py: 217, 219, 221                 |
-| List                         | game.py: 50 / transit.py: 135          |
-| Dict/List Comprehension      | transit.py: 20, 81                     | 
+| List                         | game.py: 50 / transit.py: 147          |
+| Dict/List Comprehension      | transit.py: 20, 53                     | 
 | Selection using if-statement | battle.py: 141, 149, 169               |
 | Repetition for or while loop | game.py: 357                           |
 | Membership operator (in)     | game.py: 68, 227, 229                  |
 | Range function               | game.py: 50, 62, 64                    |
 | Functions from itertools     | game.py: 50                            |
 | Enumerate function           | battle.py: 50, 52, 58 / transit.py: 19 |
-| Filter or map function       | transit.py: 47                         |
+| Filter or map function       | transit.py: 52                         |
 | Random module                | battle.py: 79, 81, 83                  |
