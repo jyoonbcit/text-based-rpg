@@ -297,6 +297,7 @@ def move(character, board):
     :postcondition: character["position"] is changed or remains the same
     :return: none
     """
+    print("Hit q to quit")
     direction = input("Move by entering W, A, S, or D: ")
     y_position, x_position = character["position"]
     if direction == "w" and validate_move(character, "W", board):
