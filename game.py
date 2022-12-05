@@ -4,8 +4,6 @@ A01324170
 Jihoon Yoon
 A01322277
 """
-
-
 import random
 import battle
 import transit
