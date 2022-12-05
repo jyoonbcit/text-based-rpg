@@ -102,6 +102,19 @@ def pick_spells(character):
             chosen_spell = "Heal"
         print(f"You have learnt {chosen_spell}")
         character["spells"][chosen_spell] = spells_dict[chosen_spell]
+    if character["level"] == 5:
+        print("\nYou can now pick a spell.")
+        spells_dict = {"Incinerate": {"target": "enemy", "strength": 100, "cost": 25},
+                       "Reckless 2.0": {"target": "enemy", "strength": random.randint(0, 300), "cost": 40}}
+        for option_num, spell in enumerate(spells_dict):
+            print(f"{option_num}: {spell}")
+        selection = int(input("Select a spell to learn: "))
+        if selection == 0:
+            chosen_spell = "Incinerate"
+        else:
+            chosen_spell = "Reckless 2.0"
+        print(f"You have learnt {chosen_spell}")
+        character["spells"][chosen_spell] = spells_dict[chosen_spell]
     return character
 
 
