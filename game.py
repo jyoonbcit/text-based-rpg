@@ -201,6 +201,13 @@ def validate_move(character, direction, board):
     :postcondition: direction is unchanged
     :postcondition: board is unchanged
     :return: False if move is not valid, else True
+
+    >>> test = make_character("Test One")
+    >>> validate_move(test, "S", make_board(10))
+    False
+    >>> test = make_character("Test Two")
+    >>> validate_move(test, "D", make_board(10))
+    True
     """
     # checks out what's in next position
     y_position, x_position = character["position"]
