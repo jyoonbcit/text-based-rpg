@@ -4,13 +4,6 @@ A01324170
 Jihoon Yoon
 A01322277
 """
-# TO-DO-LIST
-# Add descriptions to the board positions in dialogue.txt
-# Implement pick_spells for level 2, 3, etc
-# Get display board to display
-# Assign START (global constant) to the beginning point of our map
-# Add ASCII art
-# For myself (Jihoon): Check if return statements are necessary for variable adjustments, eg. move fn
 
 
 import random
@@ -217,8 +210,10 @@ def validate_move(character, direction, board):
         new_position = (y_position, x_position - 1)
     elif direction == "S":
         new_position = (y_position + 1, x_position)
-    else:
+    elif direction == "D":
         new_position = (y_position, x_position + 1)
+    else:
+        return False
     # if the next position is out of bounds, return False
     if new_position not in board:
         return False
@@ -316,6 +311,9 @@ def move(character, board):
     elif direction == "d" and validate_move(character, "D", board):
         character["position"] = (y_position, x_position + 1)
         print(f"You are at {character['position']}\n")
+    elif direction == "q":
+        print("You have quit the game.")
+        quit()
     else:
         print("Invalid move.\n")
 
