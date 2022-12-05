@@ -304,7 +304,6 @@ def move(character, board):
     """
     direction = input("Move by entering W, A, S, or D: ")
     y_position, x_position = character["position"]
-    print(y_position, x_position)
     if direction == "w" and validate_move(character, "W", board):
         character["position"] = (y_position - 1, x_position)
         print(f"You are at {character['position']}\n")
@@ -361,7 +360,9 @@ def start_game():
                     battle.engage_battle(character, enemy)
         # Asks user for move input, validates input, moves. If invalid, tells user.
         move(character, board)
-    print("Winner winner chicken dinner!")
+    with open("dialogue.txt", encoding='utf-8') as file_object:
+        lines = file_object.readlines()
+        print("".join(lines[136:148]))
 
 
 def main():
