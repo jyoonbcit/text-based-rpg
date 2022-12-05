@@ -4,7 +4,6 @@ A01324170
 Jihoon Yoon
 A01322277
 """
-import random
 import battle
 import transit
 import itertools
@@ -73,15 +72,6 @@ def display_board(character):
     print(sud)
 
 
-def random_damage():
-    """
-    Pick a random amount of damage between 0, 40, and 80
-
-    :return: int
-    """
-    return random.choice((0, 40, 80))
-
-
 def pick_spells(character):
     """
     Gives the specified character a spell depending on their level and choice.
@@ -108,14 +98,14 @@ def pick_spells(character):
     if character["level"] == 3:
         print("\nYou can now pick a spell.")
         spells_dict = {"Incinerate": {"target": "enemy", "strength": 40, "cost": 25},
-                       "Reckless 2.0": {"target": "enemy", "strength": random_damage(), "cost": 40}}
+                       "Mega Heal": {"target": "player", "strength": 40, "cost": 30}}
         for option_num, spell in enumerate(spells_dict):
             print(f"{option_num}: {spell}")
         selection = int(input("Select a spell to learn: "))
         if selection == 0:
             chosen_spell = "Incinerate"
         else:
-            chosen_spell = "Reckless 2.0"
+            chosen_spell = "Mega Heal"
         print(f"You have learnt {chosen_spell}")
         character["spells"][chosen_spell] = spells_dict[chosen_spell]
     return character
@@ -190,7 +180,7 @@ def level_up(character):
     character["health"] = character["max_health"]
     character["attack"] += 5
     character["defense"] += 3
-    character["max_mana"] += 10
+    character["max_mana"] += 40
     character["mana"] = character["max_mana"]
     pick_spells(character)
 
