@@ -90,8 +90,6 @@ def encounter_enemy(character, location):
         if engage_boss():
             enemy = make_enemy("Boss", 1000, 100, 100, 0, speed=3, is_boss=True)
             return True, enemy
-        else:
-            return False, None
     else:
         return False, None
 
@@ -112,7 +110,11 @@ def enemy_turn(character, enemy):
     else:
         character["health"] -= enemy["attack"]
         print(f"You have taken {enemy['attack'] - character['defense']} damage from {enemy['name']}.\n"
-              f"You have {character['health']} HP and {character['mana']} mana.")
+              f"You have {character['health']} HP and {character['mana']} mana.\n"
+              f"{character['name']}:"
+              f" {character['health']}/{character['max_health']} HP"
+              f" | {character['mana']}/{character['max_mana']} MP"
+              f" | {character['exp_needed']} EXP to next level\n")
 
 
 def battle_options(character, enemy):
