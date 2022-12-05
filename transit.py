@@ -97,13 +97,14 @@ def transport(stations, line, character):
     :param line: the name of a transit line as a string
     :param character: a dictionary of stats (we want the position)
     """
+    print("Where do you want to go?")
     destination = input("ENTER number or type \"q\" to quit:")
     while destination not in stations.keys():
         if destination == "q":
             print("You have quit the game.")
             quit()
         print("That is not a station. Try again.")
-        destination = input("Where do you want to go?")
+        destination = input("ENTER number or type \"q\" to quit:")
     with open("transit.json") as transit:
         station = json.load(transit)
         transit_line = station[line]
