@@ -88,7 +88,7 @@ def encounter_enemy(character, location):
         return True, enemy
     elif location in game.BOSS:
         if engage_boss():
-            enemy = make_enemy("Boss", 100, 10, 10, 0, speed=3, is_boss=True)
+            enemy = make_enemy("Boss", 100, 25, 10, 0, speed=3, is_boss=True)
             return True, enemy
     else:
         return False, None
