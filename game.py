@@ -183,8 +183,6 @@ def level_up(character):
     character["max_mana"] += 40
     character["mana"] = character["max_mana"]
     pick_spells(character)
-
-    print(f"You've levelled up! You are now level {character['level']}.\n")
     # these stats reset back to 0 or default for level
     character["current_exp"] = 0
     character["exp_needed"] = exp_to_level_up(character)
