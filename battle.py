@@ -76,11 +76,11 @@ def encounter_enemy(character, location):
     if location not in game.BOSS and location not in game.START:
         enemy = make_enemy(random.choice(["Bandit", "Wolf", "Demon"]),
                            # health
-                           character["level"] * random.randint(5, 10),
+                           character["level"] * random.randint(10, 30),
                            # attack
-                           character["level"] * random.randint(5, 10),
+                           character["level"] * random.randint(3, 5),
                            # defense
-                           character["level"] * random.randint(0, 5),
+                           character["level"] * random.randint(0, 3),
                            # exp given
                            character["level"] * 15
                            )
@@ -88,7 +88,7 @@ def encounter_enemy(character, location):
         return True, enemy
     elif location in game.BOSS:
         if engage_boss():
-            enemy = make_enemy("Boss", 1000, 100, 100, 0, speed=3, is_boss=True)
+            enemy = make_enemy("Boss", 100, 10, 10, 0, speed=3, is_boss=True)
             return True, enemy
     else:
         return False, None

@@ -102,7 +102,7 @@ def pick_spells(character):
             chosen_spell = "Heal"
         print(f"You have learnt {chosen_spell}")
         character["spells"][chosen_spell] = spells_dict[chosen_spell]
-    if character["level"] == 5:
+    if character["level"] == 3:
         print("\nYou can now pick a spell.")
         spells_dict = {"Incinerate": {"target": "enemy", "strength": 100, "cost": 25},
                        "Reckless 2.0": {"target": "enemy", "strength": random.randint(0, 300), "cost": 40}}
@@ -132,12 +132,12 @@ def make_character(name):
                  "current_exp": 0,
                  "exp_needed": 100,
                  "position": START,
-                 "health": 100,
-                 "max_health": 100,
-                 "mana": 100,
-                 "max_mana": 100,
+                 "health": 50,
+                 "max_health": 50,
+                 "mana": 50,
+                 "max_mana": 50,
                  "attack": 10,
-                 "defense": 10,
+                 "defense": 0,
                  "speed": 2,
                  "spells": dict(),
                  "win": False}
@@ -159,13 +159,8 @@ def exp_to_level_up(character):
         exp_needed = 100 - character["current_exp"]
         return exp_needed
     if character["level"] == 2 or character["level"] == 3:
-        exp_needed = 200 - character["current_exp"]
+        exp_needed = 150 - character["current_exp"]
         return exp_needed
-    if character["level"] == 4 or character["level"] == 5:
-        exp_needed = 250 - character["current_exp"]
-        return exp_needed
-    if character["level"] > 5:
-        return 300 - character["current_exp"]
 
 
 def level_up(character):
@@ -190,7 +185,7 @@ def level_up(character):
     print(f"\nYou have levelled up! You are now level {character['level']}.")
     character["max_health"] += 10
     character["health"] = character["max_health"]
-    character["attack"] += 10
+    character["attack"] += 5
     character["defense"] += 3
     character["max_mana"] += 10
     character["mana"] = character["max_mana"]
