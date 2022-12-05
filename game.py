@@ -92,7 +92,7 @@ def pick_spells(character):
     :return: dictionary
     """
     # name: [target, damage, cost]
-    if character["level"] == 5:
+    if character["level"] == 2:
         spells_dict = {"Burn": {"target": "enemy", "strength": 25, "cost": 10},
                        # reckless is RNG damage, should clarify with print statement or description
                        "Reckless": {"target": "enemy", "strength": random.randint(0, 50), "cost": 12},
