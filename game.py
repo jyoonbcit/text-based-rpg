@@ -73,6 +73,15 @@ def display_board(character):
     print(sud)
 
 
+def random_damage():
+    """
+    Pick a random amount of damage between 0, 40, and 80
+
+    :return: int
+    """
+    return random.choice((0, 40, 80))
+
+
 def pick_spells(character):
     """
     Gives the specified character a spell depending on their level and choice.
@@ -86,16 +95,12 @@ def pick_spells(character):
     if character["level"] == 2:
         print("\nYou can now pick a spell.")
         spells_dict = {"Burn": {"target": "enemy", "strength": 25, "cost": 10},
-                       # reckless is RNG damage, should clarify with print statement or description
-                       "Reckless": {"target": "enemy", "strength": random.randint(0, 50), "cost": 12},
                        "Heal": {"target": "player", "strength": 15, "cost": 10}}
         for option_num, spell in enumerate(spells_dict):
             print(f"{option_num}: {spell}")
         selection = int(input("Select a spell to learn: "))
         if selection == 0:
             chosen_spell = "Burn"
-        elif selection == 1:
-            chosen_spell = "Reckless"
         else:
             chosen_spell = "Heal"
         print(f"You have learnt {chosen_spell}")
@@ -103,7 +108,7 @@ def pick_spells(character):
     if character["level"] == 3:
         print("\nYou can now pick a spell.")
         spells_dict = {"Incinerate": {"target": "enemy", "strength": 40, "cost": 25},
-                       "Reckless 2.0": {"target": "enemy", "strength": random.randint(0, 80), "cost": 40}}
+                       "Reckless 2.0": {"target": "enemy", "strength": random_damage(), "cost": 40}}
         for option_num, spell in enumerate(spells_dict):
             print(f"{option_num}: {spell}")
         selection = int(input("Select a spell to learn: "))

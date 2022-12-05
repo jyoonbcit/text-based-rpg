@@ -155,7 +155,10 @@ def battle_options(character, enemy):
             print("Not enough mana!")
         elif character["spells"][spell_choice]["target"] == "player":
             character["mana"] -= character["spells"][spell_choice]["cost"]
-            character["health"] += character["spells"][spell_choice]["strength"]
+            if character["health"] + character["spells"][spell_choice]["strength"] > character["max_health"]:
+                character["health"] = character["max_health"]
+            else:
+                character["health"] += character["spells"][spell_choice]["strength"]
             print(f"You have {character['health']} HP and {character['mana']} mana.")
         else:
             before = enemy["health"]
@@ -220,6 +223,7 @@ def engage_battle(character, enemy):
         death_message()  # quit game if player wants
         character["position"] = game.START
         character["health"] = character["max_health"]
+        character["mana"] = character["max_mana"]
     elif enemy["health"] <= 0:
         if enemy["is_boss"]:
             character["win"] = True
