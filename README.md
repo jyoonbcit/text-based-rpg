@@ -3,7 +3,7 @@ This is a text-based RPG game developed by [Elijah Fabon](https://github.com/eli
 ## Challenges faced
 The biggest challenge we faced with this project was the time constraint of two weeks we had, in which we were synchronously completing other assignments and studying for our finals. <br>
 As a result of the time constraints, we had to cut down ideas we had initially discussed implementing (save system, challenge missions).<br>
-In the future, [I](https://github.com/jyoonbcit/) would like to playtest the game in order to learn how to improve user experiences, as well as learn to deploy the game either online or through a separate .exe file.
+In the future, [I](https://github.com/jyoonbcit/) (Jihoon Yoon) would like to playtest the game in order to learn how to improve user experiences, as well as learn to deploy the game either online or through a separate .exe file.
 
 ## List of elements used to develop the game:
 | Element                      | Line                                   |
