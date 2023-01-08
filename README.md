@@ -1,34 +1,11 @@
-# 1510-Assignment-04
+# Text Based Adventure
+This is a text-based RPG game developed by [Elijah Fabon](https://github.com/elijah-fabon/) and [Jihoon Yoon](https://github.com/jyoonbcit/) as part of a school project.<br>
+## Challenges faced
+The biggest challenge we faced with this project was the time constraint of two weeks we had, in which we were synchronously completing other assignments and studying for our finals. <br>
+As a result of the time constraints, we had to cut down ideas we had initially discussed implementing (save system, challenge missions).<br>
+In the future, [I](https://github.com/jyoonbcit/) would like to playtest the game in order to learn how to improve user experiences, as well as learn to deploy the game either online or through a separate .exe file.
 
-Every program needs a README.md
-
-This is written in markdown. Read about markdown here: [markdowncheatsheet](https://www.markdownguide.org/cheat-sheet/)
-
-## Your name:
-Elijah Fabon
-
-## Your student number:
-A01324170
-
-## Your GitHub account ID:
-Elijah-Fabon
-
-## Any important comments you'd like to make about your work:
-Replace this line with any comments you want to share
-
-## Your name:
-Jihoon Yoon
-
-## Your student number:
-A01322277
-
-## Your GitHub account ID:
-jyoonbcit
-
-## Any important comments you'd like to make about your work:
-Replace this line with any comments you want to share
-
-## Required elements
+## List of elements used to develop the game:
 | Element                      | Line                                   |
 |------------------------------|----------------------------------------|
 | Tuple                        | game.py: 217, 219, 221                 |
